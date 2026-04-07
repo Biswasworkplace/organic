@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subrat Biswas | Organic Chemistry Portal</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #020810;
+  --bg2: #040d1a;
+  --cyan: #00f5ff;
+  --green: #39ff14;
+  --purple: #bf00ff;
+  --amber: #ffb300;
+  --red: #ff2d55;
+  --blue: #0077ff;
+  --text: #c8e6f0;
+  --dim: #4a6a7a;
+  --card-bg: rgba(0,245,255,0.03);
+  --card-border: rgba(0,245,255,0.12);
+  --note-bg: rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:'Rajdhani',sans-serif;overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,245,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,245,255,0.025) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0;}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.06) 2px,rgba(0,0,0,0.06) 4px);pointer-events:none;z-index:1;}
+.orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0;}
+.orb-1{width:700px;height:700px;background:rgba(0,245,255,0.05);top:-300px;left:-300px;animation:orbFloat 12s ease-in-out infinite;}
+.orb-2{width:600px;height:600px;background:rgba(191,0,255,0.05);bottom:-200px;right:-200px;animation:orbFloat 15s ease-in-out infinite reverse;}
+.orb-3{width:500px;height:500px;background:rgba(57,255,20,0.03);top:40%;left:40%;animation:orbFloat 18s ease-in-out infinite;}
+@keyframes orbFloat{0%,100%{transform:translate(0,0);}50%{transform:translate(30px,30px);}}
+
+/* HEADER */
+header{position:sticky;top:0;z-index:100;padding:0 40px;border-bottom:1px solid var(--card-border);background:rgba(2,8,16,0.95);backdrop-filter:blur(20px);}
+.header-inner{max-width:1500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 0;gap:20px;}
+.logo-block{display:flex;flex-direction:column;cursor:pointer;}
+.logo-name{font-family:'Orbitron',monospace;font-size:1.3rem;font-weight:900;color:var(--cyan);text-shadow:0 0 20px rgba(0,245,255,0.5);letter-spacing:0.1em;line-height:1;}
+.logo-sub{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:var(--green);letter-spacing:0.3em;margin-top:4px;text-transform:uppercase;}
+.header-nav{display:flex;gap:8px;flex-wrap:wrap;}
+.nav-btn{font-family:'Share Tech Mono',monospace;font-size:0.62rem;padding:6px 14px;border:1px solid var(--card-border);background:transparent;color:var(--dim);cursor:pointer;letter-spacing:0.15em;transition:all 0.2s;white-space:nowrap;}
+.nav-btn:hover,.nav-btn.active{border-color:var(--cyan);color:var(--cyan);background:rgba(0,245,255,0.07);}
+.header-right{display:flex;align-items:center;gap:10px;}
+.badge{font-family:'Share Tech Mono',monospace;font-size:0.6rem;padding:5px 10px;border:1px solid;letter-spacing:0.1em;animation:pulseBorder 2.5s ease-in-out infinite;white-space:nowrap;}
+.badge-cyan{border-color:var(--cyan);color:var(--cyan);}
+.badge-green{border-color:var(--green);color:var(--green);}
+@keyframes pulseBorder{0%,100%{opacity:1;}50%{opacity:0.4;}}
+
+/* HERO */
+.hero{position:relative;z-index:5;text-align:center;padding:60px 40px 40px;max-width:1500px;margin:0 auto;}
+.hero-eyebrow{font-family:'Share Tech Mono',monospace;font-size:0.72rem;color:var(--green);letter-spacing:0.4em;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;justify-content:center;gap:14px;}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:50px;height:1px;background:var(--green);box-shadow:0 0 8px rgba(57,255,20,0.5);}
+.hero-title{font-family:'Orbitron',monospace;font-size:clamp(1.8rem,4.5vw,4rem);font-weight:900;line-height:1.1;letter-spacing:0.05em;background:linear-gradient(135deg,var(--cyan) 0%,#ffffff 45%,var(--purple) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;}
+.hero-desc{font-size:1rem;color:var(--dim);letter-spacing:0.04em;font-weight:400;max-width:560px;margin:0 auto 30px;line-height:1.7;}
+.atoms{display:flex;gap:5px;justify-content:center;margin-bottom:28px;}
+.atom{width:7px;height:7px;border-radius:50%;animation:atomPulse 1.6s ease-in-out infinite;}
+.atom:nth-child(1){background:var(--cyan);animation-delay:0s;}
+.atom:nth-child(2){background:var(--green);animation-delay:0.2s;}
+.atom:nth-child(3){background:var(--purple);animation-delay:0.4s;}
+.atom:nth-child(4){background:var(--amber);animation-delay:0.6s;}
+.atom:nth-child(5){background:var(--red);animation-delay:0.8s;}
+.atom:nth-child(6){background:var(--blue);animation-delay:1.0s;}
+@keyframes atomPulse{0%,100%{transform:scale(1);opacity:0.4;}50%{transform:scale(2);opacity:1;box-shadow:0 0 12px currentColor;}}
+
+/* SEARCH */
+.search-wrap{max-width:520px;margin:0 auto 50px;display:flex;border:1px solid var(--card-border);background:rgba(0,0,0,0.3);backdrop-filter:blur(10px);transition:border-color 0.3s,box-shadow 0.3s;}
+.search-wrap:focus-within{border-color:var(--cyan);box-shadow:0 0 20px rgba(0,245,255,0.2);}
+.search-icon{padding:0 14px;color:var(--dim);font-size:1rem;display:flex;align-items:center;}
+.search-wrap input{flex:1;background:none;border:none;outline:none;color:var(--text);font-family:'Share Tech Mono',monospace;font-size:0.82rem;padding:13px 0;letter-spacing:0.08em;}
+.search-wrap input::placeholder{color:var(--dim);}
+.search-btn{padding:13px 18px;background:rgba(0,245,255,0.08);border:none;border-left:1px solid var(--card-border);color:var(--cyan);cursor:pointer;font-family:'Share Tech Mono',monospace;font-size:0.65rem;letter-spacing:0.2em;transition:background 0.2s;}
+.search-btn:hover{background:rgba(0,245,255,0.18);}
+
+/* STATS */
+.stats-bar{display:flex;gap:0;max-width:1500px;margin:0 auto 40px;border:1px solid var(--card-border);background:var(--card-bg);backdrop-filter:blur(10px);overflow:hidden;position:relative;z-index:5;}
+.stat{flex:1;padding:20px 24px;display:flex;flex-direction:column;gap:4px;border-right:1px solid var(--card-border);}
+.stat:last-child{border-right:none;}
+.stat-val{font-family:'Orbitron',monospace;font-size:1.5rem;font-weight:700;color:var(--cyan);text-shadow:0 0 15px rgba(0,245,255,0.5);line-height:1;}
+.stat-label{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.2em;text-transform:uppercase;}
+
+/* MAIN */
+main{position:relative;z-index:5;max-width:1500px;margin:0 auto;padding:0 40px 80px;}
+.section-hdr{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-left:4px;}
+.s-num{font-family:'Share Tech Mono',monospace;font-size:0.65rem;color:var(--cyan);letter-spacing:0.2em;opacity:0.5;}
+.s-title{font-family:'Orbitron',monospace;font-size:0.9rem;font-weight:700;color:var(--cyan);letter-spacing:0.15em;text-transform:uppercase;}
+.s-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,245,255,0.3),transparent);}
+
+/* CATEGORY CARDS */
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(440px,1fr));gap:22px;}
+.cat-card{border:1px solid var(--card-border);background:var(--card-bg);backdrop-filter:blur(10px);overflow:hidden;transition:border-color 0.3s,box-shadow 0.3s,transform 0.3s;position:relative;opacity:0;transform:translateY(24px);animation:cardIn 0.5s forwards ease-out;}
+@keyframes cardIn{to{opacity:1;transform:translateY(0);}}
+.cat-card:nth-child(1){animation-delay:0.05s;} .cat-card:nth-child(2){animation-delay:0.1s;} .cat-card:nth-child(3){animation-delay:0.15s;} .cat-card:nth-child(4){animation-delay:0.2s;} .cat-card:nth-child(5){animation-delay:0.25s;} .cat-card:nth-child(6){animation-delay:0.3s;} .cat-card:nth-child(7){animation-delay:0.35s;} .cat-card:nth-child(8){animation-delay:0.4s;} .cat-card:nth-child(9){animation-delay:0.45s;} .cat-card:nth-child(10){animation-delay:0.5s;}
+.cat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--ac),transparent);opacity:0;transition:opacity 0.3s;}
+.cat-card:hover{transform:translateY(-3px);} 
+.cat-card:hover::before{opacity:1;}
+
+/* accent colors */
+.cc-cyan{--ac:var(--cyan);--acr:0,245,255;}
+.cc-purple{--ac:var(--purple);--acr:191,0,255;}
+.cc-amber{--ac:var(--amber);--acr:255,179,0;}
+.cc-green{--ac:var(--green);--acr:57,255,20;}
+.cc-red{--ac:var(--red);--acr:255,45,85;}
+.cc-blue{--ac:var(--blue);--acr:0,119,255;}
+.cc-teal{--ac:#00e5b0;--acr:0,229,176;}
+.cc-orange{--ac:#ff6b35;--acr:255,107,53;}
+.cc-pink{--ac:#ff4d8b;--acr:255,77,139;}
+.cc-lime{--ac:#aaff00;--acr:170,255,0;}
+.cat-card:hover{border-color:rgba(var(--acr),0.45);box-shadow:0 16px 50px rgba(0,0,0,0.5),0 0 30px rgba(var(--acr),0.1);}
+
+.cat-hdr{padding:22px 24px 16px;display:flex;align-items:flex-start;gap:14px;border-bottom:1px solid var(--card-border);cursor:pointer;user-select:none;}
+.cat-icon{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid var(--ac);font-size:1.3rem;flex-shrink:0;color:var(--ac);box-shadow:0 0 12px rgba(var(--acr),0.25);background:rgba(var(--acr),0.05);}
+.cat-info{flex:1;}
+.cat-title{font-family:'Orbitron',monospace;font-size:0.88rem;font-weight:700;color:var(--ac);letter-spacing:0.08em;line-height:1.3;margin-bottom:5px;text-shadow:0 0 15px rgba(var(--acr),0.4);}
+.cat-desc{font-size:0.78rem;color:var(--dim);letter-spacing:0.02em;line-height:1.5;font-weight:400;}
+.cat-toggle-btn{color:var(--ac);font-size:0.85rem;transition:transform 0.3s;flex-shrink:0;padding-top:3px;}
+.cat-card.open .cat-toggle-btn{transform:rotate(180deg);}
+
+/* BODY */
+.cat-body{max-height:0;overflow:hidden;transition:max-height 0.55s cubic-bezier(0.4,0,0.2,1);}
+.cat-card.open .cat-body{max-height:9999px;}
+.subcat-list{padding:14px 18px 18px;}
+
+/* SUBCATEGORY */
+.sub-item{margin-bottom:6px;border:1px solid rgba(var(--acr),0.08);background:rgba(var(--acr),0.02);overflow:hidden;transition:border-color 0.2s;}
+.sub-item:hover{border-color:rgba(var(--acr),0.22);}
+.sub-hdr{display:flex;align-items:center;gap:10px;padding:10px 13px;cursor:pointer;user-select:none;}
+.sub-dot{width:6px;height:6px;border-radius:50%;background:var(--ac);flex-shrink:0;box-shadow:0 0 5px rgba(var(--acr),0.7);}
+.sub-name{font-family:'Rajdhani',sans-serif;font-size:0.88rem;font-weight:600;color:var(--text);letter-spacing:0.04em;flex:1;}
+.sub-count{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:var(--dim);letter-spacing:0.1em;margin-right:6px;}
+.sub-arr{font-size:0.6rem;color:var(--dim);transition:transform 0.3s;}
+.sub-item.open .sub-arr{transform:rotate(180deg);}
+.sub-body{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.sub-item.open .sub-body{max-height:8000px;}
+
+/* TOPIC LIST */
+.topic-list{padding:4px 13px 10px 13px;}
+.topic-row{border-bottom:1px solid rgba(var(--acr),0.05);}
+.topic-row:last-child{border-bottom:none;}
+.topic-hdr{display:flex;align-items:center;gap:8px;padding:8px 6px;cursor:pointer;transition:background 0.2s;border-left:2px solid transparent;transition:all 0.2s;}
+.topic-hdr:hover{background:rgba(var(--acr),0.06);border-left-color:var(--ac);padding-left:10px;}
+.topic-row.open .topic-hdr{background:rgba(var(--acr),0.08);border-left-color:var(--ac);padding-left:10px;}
+.t-bullet{width:3px;height:3px;background:var(--dim);border-radius:50%;flex-shrink:0;}
+.topic-row.open .t-bullet,.topic-hdr:hover .t-bullet{background:var(--ac);}
+.t-name{font-size:0.82rem;color:var(--dim);letter-spacing:0.03em;font-weight:500;flex:1;transition:color 0.2s;}
+.topic-row.open .t-name,.topic-hdr:hover .t-name{color:var(--text);}
+.t-tag{font-family:'Share Tech Mono',monospace;font-size:0.52rem;padding:2px 6px;border:1px solid;letter-spacing:0.1em;flex-shrink:0;}
+.tag-imp{border-color:var(--amber);color:var(--amber);}
+.tag-core{border-color:var(--cyan);color:var(--cyan);}
+.tag-hard{border-color:var(--red);color:var(--red);}
+.tag-new{border-color:var(--green);color:var(--green);}
+.t-arr{font-size:0.55rem;color:var(--dim);transition:transform 0.3s;flex-shrink:0;}
+.topic-row.open .t-arr{transform:rotate(180deg);}
+
+/* NOTES PANEL */
+.notes-panel{max-height:0;overflow:hidden;transition:max-height 0.4s ease;}
+.topic-row.open .notes-panel{max-height:4000px;}
+.notes-content{margin:0 6px 10px 6px;padding:16px 18px;background:rgba(0,0,0,0.35);border:1px solid rgba(var(--acr),0.15);border-left:3px solid var(--ac);}
+.note-section{margin-bottom:14px;}
+.note-section:last-child{margin-bottom:0;}
+.note-heading{font-family:'Orbitron',monospace;font-size:0.65rem;font-weight:700;color:var(--ac);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:8px;display:flex;align-items:center;gap:8px;}
+.note-heading::after{content:'';flex:1;height:1px;background:rgba(var(--acr),0.2);}
+.note-text{font-size:0.82rem;color:#9ab8c5;line-height:1.75;letter-spacing:0.02em;font-weight:400;}
+.note-text b{color:var(--ac);font-weight:600;}
+.note-text i{color:var(--amber);font-style:normal;}
+
+/* KEY POINTS */
+.key-points{display:flex;flex-direction:column;gap:5px;margin-top:6px;}
+.kp{display:flex;align-items:flex-start;gap:8px;font-size:0.8rem;color:#9ab8c5;line-height:1.6;}
+.kp::before{content:'▸';color:var(--ac);flex-shrink:0;margin-top:1px;font-size:0.75rem;}
+.kp b{color:var(--text);}
+
+/* FORMULA BOX */
+.formula-box{background:rgba(var(--acr),0.06);border:1px solid rgba(var(--acr),0.2);padding:12px 16px;margin-top:8px;font-family:'Share Tech Mono',monospace;font-size:0.78rem;color:var(--ac);letter-spacing:0.1em;line-height:1.8;}
+
+/* COMPARISON TABLE */
+.cmp-table{width:100%;border-collapse:collapse;margin-top:8px;font-size:0.75rem;}
+.cmp-table th{background:rgba(var(--acr),0.1);color:var(--ac);font-family:'Share Tech Mono',monospace;font-size:0.62rem;letter-spacing:0.1em;padding:7px 10px;text-align:left;border:1px solid rgba(var(--acr),0.2);}
+.cmp-table td{padding:6px 10px;border:1px solid rgba(var(--acr),0.08);color:#9ab8c5;vertical-align:top;line-height:1.5;}
+.cmp-table tr:hover td{background:rgba(var(--acr),0.04);}
+
+/* MEMORY TIP */
+.mem-tip{background:rgba(57,255,20,0.05);border:1px solid rgba(57,255,20,0.2);padding:10px 14px;margin-top:8px;display:flex;gap:10px;align-items:flex-start;}
+.mem-label{font-family:'Share Tech Mono',monospace;font-size:0.58rem;color:var(--green);letter-spacing:0.15em;white-space:nowrap;padding-top:1px;}
+.mem-text{font-size:0.78rem;color:#9ab8c5;line-height:1.6;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:rgba(0,245,255,0.2);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(0,245,255,0.4);}
+
+/* FOOTER */
+footer{position:relative;z-index:5;border-top:1px solid var(--card-border);background:rgba(2,8,16,0.97);backdrop-filter:blur(20px);padding:24px 40px;}
+.footer-inner{max-width:1500px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-brand{font-family:'Orbitron',monospace;font-size:0.8rem;color:var(--cyan);letter-spacing:0.12em;}
+.footer-copy{font-family:'Share Tech Mono',monospace;font-size:0.6rem;color:var(--dim);letter-spacing:0.12em;}
+
+@media(max-width:900px){
+  header,.hero,main,footer{padding-left:16px;padding-right:16px;}
+  .cat-grid{grid-template-columns:1fr;}
+  .stats-bar{flex-wrap:wrap;}
+  .stat{min-width:45%;}
+  .header-nav{display:none;}
+  .hero-title{font-size:1.7rem;}
+}
+</style>
+</head>
+<body>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo-block" onclick="window.scrollTo(0,0)">
+      <span class="logo-name">SUBRAT BISWAS</span>
+      <span class="logo-sub">⬡ Organic Chemistry Portal</span>
+    </div>
+    <div class="header-nav" id="navBtns"></div>
+    <div class="header-right">
+      <span class="badge badge-cyan">NOTES EDITION</span>
+      <span class="badge badge-green">▶ LIVE</span>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">⬡ COMPLETE STUDY NOTES SYSTEM ⬡</div>
+  <h1 class="hero-title">ORGANIC CHEMISTRY<br>PORTAL</h1>
+  <div class="atoms"><div class="atom"></div><div class="atom"></div><div class="atom"></div><div class="atom"></div><div class="atom"></div><div class="atom"></div></div>
+  <p class="hero-desc">Click any topic to reveal detailed notes, key points, formulas, comparison tables, and memory tips — everything you need to master organic chemistry.</p>
+  <div class="search-wrap">
+    <span class="search-icon">⌕</span>
+    <input type="text" id="searchInput" placeholder="Search topics, mechanisms, reactions..." oninput="doSearch(this.value)">
+    <button class="search-btn">SEARCH</button>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar" style="padding:0 40px;">
+  <div class="stat"><span class="stat-val">10</span><span class="stat-label">Categories</span></div>
+  <div class="stat"><span class="stat-val">48</span><span class="stat-label">Sub-Topics</span></div>
+  <div class="stat"><span class="stat-val">180+</span><span class="stat-label">Topics with Notes</span></div>
+  <div class="stat"><span class="stat-val">∞</span><span class="stat-label">Knowledge Depth</span></div>
+</div>
+
+<main>
+<div class="section-hdr">
+  <span class="s-num">// 01</span>
+  <span class="s-title">KNOWLEDGE MODULES WITH NOTES</span>
+  <div class="s-line"></div>
+</div>
+<div class="cat-grid" id="catGrid">
+<!-- Cards injected by JS -->
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-brand">SUBRAT BISWAS // ORGANIC CHEMISTRY PORTAL</span>
+    <span class="footer-copy">// STUDY EDITION — CLICK ANY TOPIC TO EXPAND NOTES</span>
+  </div>
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA: Categories → Subcategories → Topics → Notes
+// ─────────────────────────────────────────────────────────────────────────────
+const DATA = [
+{
+  id:0, color:'cc-cyan', icon:'⚛', title:'FUNDAMENTALS OF ORGANIC CHEMISTRY',
+  desc:'Core principles, bonding, hybridization, and nomenclature',
+  subs:[
+    { name:'Structure & Bonding', topics:[
+      { name:'Hybridization — sp, sp², sp³', tag:'core', notes:{
+        def:'Hybridization is the mixing of atomic orbitals of different energies to form new orbitals of equal energy (hybrid orbitals) suitable for covalent bonding.',
+        points:[
+          '<b>sp³ hybridization:</b> 1s + 3p orbitals mix → 4 equivalent sp³ orbitals; tetrahedral geometry; bond angle ≈ 109.5° (e.g., CH₄, NH₃, H₂O)',
+          '<b>sp² hybridization:</b> 1s + 2p orbitals mix → 3 sp² orbitals; trigonal planar geometry; bond angle ≈ 120°; one unhybridized p orbital forms π bond (e.g., ethylene C₂H₄)',
+          '<b>sp hybridization:</b> 1s + 1p mix → 2 sp orbitals; linear geometry; bond angle = 180°; two unhybridized p orbitals form two π bonds (e.g., acetylene C₂H₂)',
+          '<b>Number of σ bonds + lone pairs</b> on an atom determines its hybridization: 4=sp³, 3=sp², 2=sp',
+        ],
+        formula:'Hybridization = σ bonds + lone pairs on central atom\nsp³: 4 groups → tetrahedral (109.5°)\nsp²: 3 groups → trigonal planar (120°)\nsp: 2 groups → linear (180°)',
+        tip:'Mnemonic: "Single bonds = sp³, Double = sp², Triple = sp" — count the bond type on the carbon atom.'
+      }},
+      { name:'Sigma (σ) and Pi (π) Bonds', tag:'core', notes:{
+        def:'Sigma bonds form by head-on (axial) overlap of orbitals. Pi bonds form by lateral (side-by-side) overlap of unhybridized p orbitals.',
+        points:[
+          '<b>σ bond:</b> Formed by direct (head-on) overlap; electron density concentrated along the internuclear axis; free rotation possible; stronger bond',
+          '<b>π bond:</b> Formed by lateral overlap of p orbitals above and below the σ bond axis; NO free rotation (causes geometric isomerism); weaker than σ',
+          '<b>Single bond</b> = 1 σ; <b>Double bond</b> = 1σ + 1π; <b>Triple bond</b> = 1σ + 2π',
+          '<b>Bond strength order:</b> σ > π (σ bonds are stronger due to greater orbital overlap)',
+        ],
+        tip:'Remember: Single=Sigma only. Double=Sigma+Pi. Triple=Sigma+Pi+Pi. The FIRST bond is always Sigma!'
+      }},
+      { name:'VSEPR Theory', tag:'', notes:{
+        def:'Valence Shell Electron Pair Repulsion (VSEPR): Electron pairs (bonding + lone pairs) arrange themselves to minimize repulsion, determining molecular geometry.',
+        points:[
+          '<b>Lone pair–lone pair > Lone pair–bond pair > Bond pair–bond pair</b> repulsion order',
+          'CH₄ → tetrahedral (109.5°); NH₃ → trigonal pyramidal (~107°); H₂O → bent (~104.5°)',
+          'BF₃ → trigonal planar (120°); CO₂ → linear (180°)',
+          '<b>Effect of lone pairs:</b> Each lone pair compresses bond angles by ~2–2.5°',
+        ],
+        tip:'Count all electron domains (bonds + lone pairs) = shape predictor. Lone pairs are "invisible" in shape name but reduce bond angles.'
+      }},
+      { name:'Bond Lengths, Angles & Energies', tag:'', notes:{
+        def:'Bond length is the distance between nuclei of bonded atoms. Bond energy is energy required to break one mole of bonds in gaseous state.',
+        points:[
+          '<b>Bond length order:</b> C–C (154 pm) > C=C (134 pm) > C≡C (120 pm)',
+          '<b>Bond energy order:</b> C≡C (839 kJ/mol) > C=C (614 kJ/mol) > C–C (347 kJ/mol)',
+          'Shorter bonds are stronger; More bonds between atoms = shorter + stronger',
+          '<b>Electronegativity effect:</b> More electronegative atoms draw electrons, shortening bonds',
+        ],
+        formula:'Bond order = (Bonding electrons − Antibonding electrons) / 2\nHigher bond order → Shorter bond length → Higher bond energy'
+      }},
+      { name:'Lewis Structures & Formal Charges', tag:'', notes:{
+        def:'Lewis structures show bonding pairs and lone pairs. Formal charge = Valence electrons − Non-bonding electrons − ½(Bonding electrons).',
+        points:[
+          '<b>Formal Charge (FC) = V − N − B/2</b> where V=valence e⁻, N=non-bonding e⁻, B=bonding e⁻',
+          'Best Lewis structure: formal charges closest to zero; negative FC on more electronegative atom',
+          'Resonance structures have same atom connectivity but different electron distribution',
+          '<b>Resonance hybrid</b> is more stable than any individual resonance structure',
+        ],
+        formula:'FC = Valence e⁻ − Lone pair e⁻ − ½(Bonding e⁻)\nExample: N in NO₃⁻: FC = 5 − 0 − 8/2 = +1'
+      }},
+    ]},
+    { name:'Functional Groups', topics:[
+      { name:'Alkyl, Alkenyl & Alkynyl Groups', tag:'', notes:{
+        def:'Functional groups are specific atoms or bonds that give characteristic properties and reactivity to organic molecules.',
+        points:[
+          '<b>Alkyl (–CₙH₂ₙ₊₁):</b> Saturated carbon chains; methyl (–CH₃), ethyl (–C₂H₅), propyl (–C₃H₇)',
+          '<b>Alkenyl (–CₙH₂ₙ₋₁):</b> Contains C=C double bond; vinyl (–CH=CH₂), allyl (–CH₂–CH=CH₂)',
+          '<b>Alkynyl (–CₙH₂ₙ₋₃):</b> Contains C≡C triple bond; ethynyl (–C≡CH)',
+          'Primary (1°), Secondary (2°), Tertiary (3°) classification depends on number of C attached to the carbon bearing the group',
+        ],
+        tip:'1°=one C neighbor, 2°=two C neighbors, 3°=three C neighbors. Neopentyl is 1° despite being bulky!'
+      }},
+      { name:'Hydroxyl, Ether, Carbonyl Groups', tag:'', notes:{
+        def:'Oxygen-containing functional groups that govern polarity, solubility, and reactivity of organic molecules.',
+        points:[
+          '<b>Hydroxyl (–OH):</b> Alcohols; H-bonding makes them high boiling; amphiphilic in short chains',
+          '<b>Ether (–O–):</b> R–O–R; polar but no H-donor; low reactivity; good solvents (Et₂O, THF)',
+          '<b>Aldehyde (–CHO):</b> Carbonyl at chain end; reactive toward nucleophiles; easily oxidized',
+          '<b>Ketone (C=O):</b> Carbonyl in chain; less reactive than aldehyde; resistant to oxidation',
+          '<b>Carboxylic acid (–COOH):</b> Most acidic organic group (pKa ~5); strong H-bonding; high bp',
+        ],
+        tip:'Polarity/H-bonding increases boiling point: Alkane < Ether < Aldehyde < Alcohol < Carboxylic Acid'
+      }},
+      { name:'Amine, Amide, Nitrile Groups', tag:'', notes:{
+        def:'Nitrogen-containing functional groups; amines are bases, amides are stable, nitriles are versatile synthetic handles.',
+        points:[
+          '<b>Amine (–NH₂, –NHR, –NR₂):</b> Basic (lone pair on N); 1°>2°>3° in H-bonding; pKa of conjugate acid ~10',
+          '<b>Amide (–CONH₂):</b> Resonance stabilized (N lone pair delocalized into C=O); very stable; weakly basic (pKa ~0)',
+          '<b>Nitrile (–C≡N):</b> Polar; can be hydrolyzed to carboxylic acid or reduced to amine; sp carbon',
+          'Amide resonance: N–C=O ↔ N⁺=C–O⁻ (explains planarity and restricted rotation)',
+        ],
+      }},
+    ]},
+    { name:'IUPAC Nomenclature', topics:[
+      { name:'Alkanes, Alkenes, Alkynes Naming', tag:'core', notes:{
+        def:'IUPAC rules provide systematic, unambiguous names for organic compounds based on the longest carbon chain and substituent positions.',
+        points:[
+          '<b>Step 1:</b> Find the longest continuous carbon chain (parent chain)',
+          '<b>Step 2:</b> Number from the end closer to the first substituent (or first point of difference)',
+          '<b>Step 3:</b> Name substituents as prefixes with locant numbers',
+          '<b>Step 4:</b> Alphabetical order for substituents; di-, tri- prefixes ignored in alphabetization',
+          'Alkanes: -ane suffix | Alkenes: -ene (number the double bond C) | Alkynes: -yne',
+        ],
+        formula:'Meth(1)-Eth(2)-Prop(3)-But(4)-Pent(5)-Hex(6)-Hept(7)-Oct(8)-Non(9)-Dec(10)',
+        tip:'MEPBPHOND — "My Enormous Purple Butterfly Produces Honey Over North Dakota"'
+      }},
+      { name:'Cyclic Compounds Naming', tag:'', notes:{
+        def:'Cyclic compounds use the prefix "cyclo-" before the parent chain name. Numbering follows the rule of lowest locants for substituents.',
+        points:[
+          'Cyclopropane (3C), cyclobutane (4C), cyclopentane (5C), cyclohexane (6C)',
+          'For substituted rings: assign lowest locant set to substituents; start numbering at substituted carbon',
+          '<b>Spiro compounds:</b> Two rings sharing one carbon → spiro[x.y]alkane notation',
+          '<b>Bicyclic:</b> bicyclo[x.y.z]alkane where x≥y≥z are bridge carbon counts',
+        ],
+      }},
+      { name:'Priority Rules (Substituent Order)', tag:'imp', notes:{
+        def:'When multiple substituents exist, IUPAC rules specify alphabetical order and lowest locant set to determine numbering.',
+        points:[
+          '<b>Lowest locant rule:</b> The set of locants for all substituents must be lowest possible',
+          '<b>Alphabetical priority:</b> Ignore multiplying prefixes (di-, tri-) when alphabetizing',
+          '<b>Principal characteristic group (PCG):</b> Highest priority functional group gets lowest locant (COOH > OH > NH₂ > etc.)',
+          'Double bond > substituent in determining chain numbering in alkenes',
+        ],
+        tip:'Priority order (for suffix): COOH > anhydride > ester > acid halide > amide > nitrile > aldehyde > ketone > alcohol > amine'
+      }},
+    ]},
+    { name:'Acids, Bases & pKa', topics:[
+      { name:'Brønsted-Lowry & Lewis Acids/Bases', tag:'core', notes:{
+        def:'Brønsted-Lowry: Acid = proton (H⁺) donor; Base = proton acceptor. Lewis: Acid = electron pair acceptor; Base = electron pair donor.',
+        points:[
+          '<b>Brønsted acid:</b> Donates H⁺ (e.g., HCl, H₂SO₄, carboxylic acids)',
+          '<b>Brønsted base:</b> Accepts H⁺ (e.g., NH₃, amines, water)',
+          '<b>Lewis acid:</b> Accepts e⁻ pair — empty orbital (e.g., BF₃, AlCl₃, carbocations)',
+          '<b>Lewis base:</b> Donates e⁻ pair — lone pair (e.g., NH₃, ethers, halide ions)',
+          'All Brønsted acids are Lewis acids, but NOT vice versa',
+        ],
+        tip:'Lewis acids have empty orbitals; Lewis bases have lone pairs. "LEAC LEBAD" = Lewis Electron Acceptor/Donor'
+      }},
+      { name:'pKa Values & Prediction', tag:'imp', notes:{
+        def:'pKa = –log(Ka). Lower pKa = stronger acid. Acid strength depends on stability of conjugate base (anion stabilization).',
+        points:[
+          '<b>Stability factors for conjugate base:</b> Electronegativity > Inductive effect > Resonance > Hybridization > Polarizability',
+          '<b>Common pKa values:</b> HCl (~−7), H₂SO₄ (~−3), RCOOH (~5), PhOH (~10), ROH (~16), H₂O (15.7), RNH₃⁺ (~10), RC≡CH (~25), RCH₂⁻ (~50)',
+          '<b>Resonance stabilization:</b> Carboxylate (RCOO⁻) very stable → RCOOH is strong organic acid',
+          '<b>Inductive effect:</b> F₃C–COOH (pKa 0.5) much stronger than CH₃COOH (pKa 4.76)',
+          'Hybridization: sp carbon more electronegative → RC≡C–H more acidic than alkanes',
+        ],
+        formula:'Stronger acid + Weaker base ⇌ Weaker acid + Stronger base\nEquilibrium favors weaker acid/base side\nIf pKa(acid) < pKa(conjugate acid of base): reaction favors products',
+        tip:'Lower pKa = Stronger acid = More stable conjugate base. For predicting: ARIS (Atom size > Resonance > Induction > Hybridization... roughly)'
+      }},
+    ]},
+  ]
+},
+{
+  id:1, color:'cc-purple', icon:'🔮', title:'STEREOCHEMISTRY',
+  desc:'Spatial arrangement, chirality, R/S, E/Z, and conformational analysis',
+  subs:[
+    { name:'Chirality & Stereoisomers', topics:[
+      { name:'Chiral Centers & Chirality', tag:'core', notes:{
+        def:'A chiral molecule is non-superimposable on its mirror image. A chiral center (stereocenter) is a carbon bonded to four different groups.',
+        points:[
+          '<b>Chiral center (stereocenter):</b> sp³ carbon with 4 different substituents; denoted with *',
+          '<b>Achiral molecule:</b> Has a plane of symmetry or center of inversion; superimposable on mirror image',
+          '<b>Point of chirality test:</b> Replace each H with D; if different compound results, that carbon is chiral',
+          'Axial chirality (allenes, biphenyls) and planar chirality also exist in advanced chemistry',
+          '<b>n chiral centers → max 2ⁿ stereoisomers</b>',
+        ],
+        tip:'Quick test for chiral center: 4 DIFFERENT groups on sp³ carbon. If ANY two are the same, it\'s NOT chiral.'
+      }},
+      { name:'Enantiomers & Diastereomers', tag:'imp', notes:{
+        def:'Enantiomers: Non-superimposable mirror images. Diastereomers: Stereoisomers that are NOT mirror images of each other.',
+        points:[
+          '<b>Enantiomers:</b> Opposite configuration at ALL stereocenters; identical physical properties except optical rotation; (+) and (−) forms',
+          '<b>Diastereomers:</b> Different configuration at SOME (not all) stereocenters; different physical properties (mp, bp, solubility)',
+          '<b>Meso compound:</b> Has stereocenters but is achiral due to internal plane of symmetry; identical to its mirror image',
+          '<b>Racemic mixture:</b> 50:50 mixture of enantiomers; optically inactive; called (±) or (dl)',
+          'Diastereomers can be separated by conventional methods; enantiomers need chiral methods',
+        ],
+        formula:'n stereocenters → max 2ⁿ stereoisomers\nWith meso forms: fewer than 2ⁿ\nEnantiomeric pairs = 2ⁿ/2 = 2ⁿ⁻¹ (when no meso)',
+        tip:'Enantiomers = MIRROR images (all centers flipped). Diastereomers = SOME centers flipped. Meso = internal mirror plane cancels chirality.'
+      }},
+      { name:'Meso Compounds', tag:'', notes:{
+        def:'A meso compound contains stereocenters but is achiral overall because it possesses an internal plane of symmetry (σ plane).',
+        points:[
+          'Classic example: <b>meso-tartaric acid</b> — has 2 stereocenters (both R or both S would be chiral, but R,S form is meso)',
+          '<b>Test for meso:</b> Draw the molecule and look for an internal mirror plane bisecting it',
+          'Meso compounds are optically inactive despite having stereocenters',
+          'meso-2,3-dibromobutane: the middle C–C bond can be rotated to show internal symmetry',
+        ],
+        tip:'Meso = same connectivity as chiral compound but internal plane of symmetry makes it achiral. "Mirror inside the molecule."'
+      }},
+      { name:'Optical Activity & Specific Rotation', tag:'', notes:{
+        def:'Optical activity = ability of a chiral compound to rotate plane-polarized light. Specific rotation [α] is a characteristic property.',
+        points:[
+          '<b>[α]D = α / (c × l)</b> where α=observed rotation (°), c=concentration (g/mL), l=path length (dm)',
+          '<b>(+) or d-:</b> Dextrorotatory — rotates plane-polarized light clockwise',
+          '<b>(−) or l-:</b> Levorotatory — rotates plane-polarized light counterclockwise',
+          'R/S configuration does NOT directly determine + or − rotation (must be measured experimentally)',
+          'Racemic mixture: [α] = 0 (equal and opposite rotations cancel)',
+          '<b>Enantiomeric excess (ee%) = [(major − minor)/(major + minor)] × 100%</b>',
+        ],
+        formula:'ee% = ([α]mixture / [α]pure enantiomer) × 100%\nObserved [α] = ee% × [α]pure / 100'
+      }},
+    ]},
+    { name:'R/S & E/Z Configuration', topics:[
+      { name:'CIP Priority Rules', tag:'imp', notes:{
+        def:'Cahn-Ingold-Prelog (CIP) rules assign priorities (1–4) to substituents based on atomic number, then mass, then next atoms outward.',
+        points:[
+          '<b>Rule 1:</b> Higher atomic number = higher priority (I > Br > Cl > S > O > N > C > H)',
+          '<b>Rule 2 (tie-breaker):</b> Compare atoms one bond out from the center; highest atomic number wins',
+          '<b>Rule 3 (double/triple bonds):</b> Duplicate atoms — C=O treated as C(O)(O) and O(C)(C)',
+          '<b>Isotopes:</b> Higher mass = higher priority (D > H, ¹³C > ¹²C)',
+        ],
+        tip:'Atomic number table to memorize: H(1) < C(6) < N(7) < O(8) < F(9) < Cl(17) < Br(35) < I(53)'
+      }},
+      { name:'R/S Assignment', tag:'core', notes:{
+        def:'Assign 1→2→3 rotation direction with priority-4 group pointing away: clockwise = R (rectus), counterclockwise = S (sinister).',
+        points:[
+          '<b>Step 1:</b> Assign priorities 1 (highest) to 4 (lowest) using CIP rules',
+          '<b>Step 2:</b> Orient molecule so priority-4 group points AWAY from you',
+          '<b>Step 3:</b> Trace 1→2→3: clockwise = <b>R</b>, counterclockwise = <b>S</b>',
+          '<b>If priority-4 is pointing toward you:</b> Do the opposite of what you see (R↔S)',
+          'In Fischer projection: if #4 is on horizontal bond, the observed rotation is inverted',
+        ],
+        tip:'R = clockwise like a steering wheel to the Right. S = counterclockwise = Sinister (Latin for left).'
+      }},
+      { name:'E/Z Nomenclature in Alkenes', tag:'', notes:{
+        def:'E (entgegen = opposite) and Z (zusammen = together) describe geometry around C=C when cis/trans is ambiguous.',
+        points:[
+          '<b>Step 1:</b> Assign CIP priorities to both groups on each carbon of the double bond',
+          '<b>Z (zusammen = together):</b> Higher priority groups on same side — like cis',
+          '<b>E (entgegen = opposite):</b> Higher priority groups on opposite sides — like trans',
+          'cis/trans only used when two identical groups exist; E/Z always unambiguous',
+          'Example: (Z)-2-butene = cis-2-butene (both CH₃ on same side)',
+        ],
+        tip:'Z = "Zame Zide" (same side). E = "Enz on oppoziTE side." Or: Z = cis-like, E = trans-like when comparing similar groups.'
+      }},
+      { name:'Conformational Analysis', tag:'imp', notes:{
+        def:'Conformations are different spatial arrangements of a molecule produced by rotation around single bonds. They interconvert rapidly.',
+        points:[
+          '<b>Newman projection:</b> View along C–C bond; front C = dot, back C = circle with 3 lines',
+          '<b>Eclipsed:</b> Bonds on front and back C align (0° dihedral) — highest energy (torsional strain)',
+          '<b>Staggered:</b> Bonds on front and back C alternate (60° apart) — lower energy',
+          '<b>Anti:</b> Largest groups 180° apart — most stable conformation of butane',
+          '<b>Gauche:</b> Largest groups 60° apart — less stable than anti due to steric strain',
+          '<b>Energy order (butane):</b> Anti < Gauche < Eclipsed (CH₃ eclipsing H) < Full eclipsed (CH₃ eclipsing CH₃)',
+        ],
+        tip:'SAGE: Staggered Anti = Greatest Energy saving (lowest energy)!'
+      }},
+      { name:'Chair Conformation of Cyclohexane', tag:'imp', notes:{
+        def:'Cyclohexane adopts a chair conformation to minimize angle strain and torsional strain. Ring flip interconverts axial and equatorial positions.',
+        points:[
+          '<b>Chair conformation:</b> All C–C–C angles ≈ 111° (close to tetrahedral 109.5°); all bonds staggered',
+          '<b>Axial bonds:</b> Alternate up/down; parallel to ring axis; experience 1,3-diaxial interactions',
+          '<b>Equatorial bonds:</b> Point outward roughly along the ring plane; less steric strain',
+          '<b>Ring flip:</b> Converts axial ↔ equatorial; all axial become equatorial and vice versa',
+          '<b>Bulky groups prefer equatorial:</b> Axial position causes 1,3-diaxial strain (~3.8 kJ/mol per CH₃)',
+          'Cyclohexane with one large substituent: >95% equatorial conformer at equilibrium',
+        ],
+        formula:'A-value = ΔG° for axial vs equatorial equilibrium\nCH₃: 7.3 kJ/mol | C₂H₅: 8.0 | iPr: 9.2 | tBu: 22.8 kJ/mol',
+        tip:'The chair with the largest substituent(s) equatorial is the most stable. tert-Butyl group LOCKS the ring (it\'s never axial).'
+      }},
+    ]},
+  ]
+},
+{
+  id:2, color:'cc-amber', icon:'⚡', title:'REACTION MECHANISMS',
+  desc:'Electron flow, substitution, elimination, addition, and reactive intermediates',
+  subs:[
+    { name:'Substitution Reactions', topics:[
+      { name:'SN1 Mechanism & Conditions', tag:'core', notes:{
+        def:'SN1 = Substitution Nucleophilic Unimolecular. Two-step: (1) ionization to carbocation, (2) nucleophile attack. Rate depends only on substrate.',
+        points:[
+          '<b>Step 1 (rate-determining):</b> Ionization → carbocation + leaving group (slow)',
+          '<b>Step 2:</b> Nucleophile attacks carbocation from both faces → racemization (loss of stereochemistry)',
+          '<b>Rate = k[substrate]</b> — first order; nucleophile concentration does NOT affect rate',
+          '<b>Favored by:</b> 3° > 2° substrates (stable carbocations); polar protic solvents (H₂O, ROH, RCOOH) stabilize ions; weak nucleophiles',
+          '<b>Products:</b> Racemic mixture (carbocation is planar sp² — equal attack from both faces)',
+          '<b>Rearrangements possible:</b> Carbocation can rearrange via hydride/methyl shifts to more stable form',
+        ],
+        formula:'Rate = k[RX]\nCarbocation stability: 3° > 2° > 1° > methyl\nAllylic = benzylic ≈ 3° carbocations',
+        tip:'SN1: Stable carbocation needed. Polar PROTIC solvent. WEAK nucleophile. Results in RACEMIZATION. "1" = one molecule in rate law.'
+      }},
+      { name:'SN2 Mechanism & Conditions', tag:'core', notes:{
+        def:'SN2 = Substitution Nucleophilic Bimolecular. Concerted one-step: backside attack by nucleophile as leaving group departs. Complete inversion.',
+        points:[
+          '<b>Concerted:</b> Single transition state — nucleophile attacks from backside (180° from leaving group)',
+          '<b>Walden inversion:</b> Complete inversion of configuration at stereocenter (like umbrella flipping)',
+          '<b>Rate = k[substrate][nucleophile]</b> — second order',
+          '<b>Favored by:</b> 1° > 2° substrates (less steric hindrance); polar APROTIC solvents (DMSO, DMF, acetone); strong nucleophiles',
+          '<b>Steric order:</b> Methyl > 1° > 2° >> 3° (3° is too hindered for SN2)',
+          'Branching even at β-carbon significantly slows SN2',
+        ],
+        formula:'Rate = k[Nu][RX]\nSteric hindrance: CH₃X > 1°RX > 2°RX >> 3°RX (for SN2 rate)\nNeopentyl is 1° but extremely slow SN2 due to β-branching',
+        tip:'SN2: Simple/Small substrate (1°). Strong Nucleophile. Aprotic solvent. Inverts stereochemistry. "2" = two molecules in rate law = backSIDE attack.'
+      }},
+      { name:'SN1 vs SN2 Comparison', tag:'imp', notes:{
+        def:'Choosing between SN1 and SN2 depends on substrate structure, nucleophile strength, solvent, and temperature.',
+        table:{
+          headers:['Factor','SN1','SN2'],
+          rows:[
+            ['Substrate','3° > 2° > 1°','1° > 2° >> 3°'],
+            ['Nucleophile','Weak (H₂O, ROH)','Strong (OH⁻, CN⁻, RS⁻)'],
+            ['Solvent','Polar protic (H₂O, ROH)','Polar aprotic (DMSO, DMF)'],
+            ['Stereochemistry','Racemization','Inversion (Walden)'],
+            ['Rate law','k[substrate]','k[substrate][Nu]'],
+            ['Intermediates','Carbocation','No intermediate (TS)'],
+            ['Rearrangements','Possible','Not possible'],
+          ]
+        },
+        tip:'Simple memory: SN1 = Slow ionization first (needs stable carbocation). SN2 = Simultaneous (backside, concerted).'
+      }},
+      { name:'Nucleophilicity & Leaving Groups', tag:'', notes:{
+        def:'Nucleophilicity = kinetic tendency to donate electrons to electrophilic carbon. Leaving group ability = ability to depart as stable anion/neutral molecule.',
+        points:[
+          '<b>Nucleophilicity order (protic solvent):</b> RS⁻ > I⁻ > Br⁻ > Cl⁻ > F⁻ (follows polarizability, not electronegativity)',
+          '<b>Nucleophilicity order (aprotic solvent):</b> F⁻ > Cl⁻ > Br⁻ > I⁻ (solvation no longer matters)',
+          '<b>Good leaving groups:</b> Stable anions (weak bases): I⁻ > Br⁻ > Cl⁻ > TsO⁻ >> F⁻ >> OH⁻',
+          '<b>Conversion of poor LG:</b> OH⁻ → convert to OTs (tosylate) or OMs (mesylate) first',
+          '<b>Strongest nucleophiles:</b> Organolithium, Grignard, NaH, LDA, organocuprates',
+        ],
+        tip:'Good leaving group = Weak base = Stable anion. HI is strongest acid → I⁻ is weakest base → best leaving group!'
+      }},
+    ]},
+    { name:'Elimination Reactions', topics:[
+      { name:'E1 Mechanism', tag:'core', notes:{
+        def:'E1 = Elimination Unimolecular. Two-step: (1) ionization to carbocation, (2) proton abstraction by base to form alkene.',
+        points:[
+          '<b>Step 1 (rate-determining):</b> Loss of leaving group → carbocation (identical to SN1 Step 1)',
+          '<b>Step 2:</b> Base abstracts β-hydrogen → alkene forms',
+          '<b>Rate = k[substrate]</b> — unimolecular',
+          'Competes with SN1 (same substrate/conditions); higher temperature favors E1 over SN1',
+          '<b>Regioselectivity:</b> Follows Zaitsev\'s rule — more substituted alkene preferred (more stable)',
+          'Favored: 3° substrates, polar protic solvents, weak bases, high temperature',
+        ],
+        tip:'E1 shares first step with SN1 (carbocation forms). Then base removes H. Temperature decides: higher T → more E1.'
+      }},
+      { name:'E2 Mechanism', tag:'core', notes:{
+        def:'E2 = Elimination Bimolecular. Concerted: base removes β-H simultaneously as leaving group departs. Anti-periplanar geometry required.',
+        points:[
+          '<b>Concerted single step:</b> Base—H⁺ removal and C–LG bond breaking occur simultaneously',
+          '<b>Anti-periplanar requirement:</b> H and LG must be 180° apart (anti arrangement) in transition state',
+          '<b>Rate = k[substrate][base]</b> — second order',
+          '<b>Stereochemistry:</b> Anti addition → specific stereochemistry of alkene product (trans preferred)',
+          '<b>Favored by:</b> Strong bulky base (t-BuO⁻K⁺, NaOEt); 2° or 3° substrate; high temperature',
+          '<b>Cyclohexane rings:</b> H and LG must be diaxial (both axial) for E2 to occur',
+        ],
+        formula:'For cyclohexane E2: Leaving group and β-H must be diaxial\nIf both cannot be diaxial simultaneously → E2 blocked or different product',
+        tip:'E2 = Anti-periplanar (H and LG must be anti). Strong BASE drives E2. Think "E2 = Elimination with 2 reactants in rate law."'
+      }},
+      { name:'Zaitsev\'s Rule & Hofmann Product', tag:'imp', notes:{
+        def:'Zaitsev\'s Rule: In elimination, the more substituted (more stable) alkene is the major product. Hofmann product is the less substituted alkene.',
+        points:[
+          '<b>Zaitsev (Saytzeff) product:</b> More substituted alkene — more stable, thermodynamic product',
+          '<b>Hofmann product:</b> Less substituted alkene — kinetic product favored with bulky bases',
+          '<b>When Zaitsev applies:</b> Small bases (NaOEt, NaOMe), E1, E2 with non-bulky base',
+          '<b>When Hofmann applies:</b> Very bulky bases (t-BuO⁻K⁺, LDA) — cannot reach internal β-H, abstract terminal H',
+          'In ammonium salt eliminations (Hofmann elimination): always gives Hofmann (less substituted) product',
+        ],
+        table:{
+          headers:['Base/Condition','Product','Rule'],
+          rows:[
+            ['NaOEt (small)','More substituted alkene','Zaitsev'],
+            ['t-BuOK (bulky)','Less substituted alkene','Hofmann'],
+            ['Quaternary ammonium','Less substituted alkene','Hofmann'],
+          ]
+        },
+        tip:'Bulky base = can\'t get near crowded internal carbon → attacks less hindered terminal H → less substituted alkene (Hofmann).'
+      }},
+    ]},
+    { name:'Addition Reactions', topics:[
+      { name:'Electrophilic Addition & Markovnikov\'s Rule', tag:'core', notes:{
+        def:'Electrophilic addition to alkenes: electrophile attacks π bond first, forming carbocation intermediate, then nucleophile attacks carbocation.',
+        points:[
+          '<b>Markovnikov\'s Rule:</b> In addition of H–X to an alkene, H adds to the carbon with more hydrogens (gives more stable carbocation)',
+          '<b>Mechanism:</b> (1) Electrophile (H⁺) attacks alkene → more stable carbocation; (2) Nucleophile (X⁻) attacks carbocation',
+          '<b>Regiochemistry:</b> Follows Markovnikov — more substituted carbon gets the X (nucleophile)',
+          '<b>Stereochemistry:</b> Racemic mixture at new stereocenters (carbocation is planar)',
+          'Markovnikov can be explained by stability: 3° > 2° > 1° carbocation intermediate',
+        ],
+        formula:'HX addition: CH₂=CH-R + HX → R-CHX-CH₃ (Markovnikov)\nAnti-Markovnikov: R-CH₂-CH₂X (radical or hydroboration conditions)',
+        tip:'Markovnikov: "The rich get richer" — the carbon with more H gets even more H. Or: H goes to the more H-bearing carbon.'
+      }},
+      { name:'Anti-Markovnikov & Radical Addition', tag:'', notes:{
+        def:'Anti-Markovnikov addition places X on the less substituted carbon. Achieved via radical mechanism (peroxides) or hydroboration-oxidation.',
+        points:[
+          '<b>Radical addition (HBr + ROOR):</b> Peroxide initiates radical chain; Br• adds to give more stable radical (more substituted) → Br ends up on less substituted C',
+          '<b>Hydroboration-oxidation:</b> BH₃ adds in syn fashion; B goes to less hindered C; oxidation replaces B with OH → anti-Markovnikov alcohol with syn addition',
+          'Only HBr shows anti-Markovnikov with peroxides (HCl and HI don\'t work due to bond energies)',
+          '<b>Net result of HB/OX:</b> syn addition of H and OH; anti-Markovnikov regiochemistry',
+        ],
+        tip:'Peroxide = Radical = Anti-Markovnikov addition of HBr. Hydroboration = syn, anti-Markovnikov alcohol. Both put the new group on the LESS substituted carbon.'
+      }},
+      { name:'Nucleophilic Addition to Carbonyls', tag:'core', notes:{
+        def:'The C=O carbon is electrophilic. Nucleophiles attack the carbonyl carbon in a tetrahedral addition mechanism.',
+        points:[
+          '<b>Mechanism:</b> Nucleophile attacks carbonyl C → tetrahedral alkoxide intermediate → protonation',
+          '<b>Reactivity order:</b> Aldehyde > Ketone (more substituted = more hindered + alkyl groups donate e⁻, making C less electrophilic)',
+          'Addition of HCN → cyanohydrin; of H₂O → hydrate (gem-diol); of ROH → hemiacetal → acetal',
+          '<b>Addition of Grignard (RMgX):</b> R⁻ attacks C=O → gives 1°, 2°, or 3° alcohol after hydrolysis',
+          '<b>Reduction with NaBH₄:</b> H⁻ delivers to C=O → alcohol',
+          '<b>Reduction with LiAlH₄:</b> Stronger; reduces esters, amides, carboxylic acids too',
+        ],
+        formula:'RCHO + Nu-H → RCH(OH)(Nu)\nRCOR\' + NaBH₄ → RCH(OH)R\' (2° alcohol)\nRCHO + RMgX → then H₃O⁺ → R-CH(OH)-R (2° alcohol)',
+        tip:'Nucleophile attacks carbonyl carbon (the electrophilic carbon). Aldehydes are more reactive than ketones due to less steric and more electronic activation.'
+      }},
+    ]},
+    { name:'Reactive Intermediates', topics:[
+      { name:'Carbocations — Stability & Rearrangements', tag:'imp', notes:{
+        def:'Carbocations are sp² hybridized carbon species with an empty p orbital and positive charge. Stability determines reaction pathway.',
+        points:[
+          '<b>Stability order:</b> Tertiary (3°) > Secondary (2°) > Primary (1°) > Methyl',
+          '<b>Special stability:</b> Allylic ≈ 3° carbocation (resonance); benzylic ≈ allylic; bridgehead: non-classical ions',
+          '<b>Hyperconjugation:</b> Adjacent C–H σ bonds donate electron density into empty p orbital; more alkyl groups = more stabilization',
+          '<b>1,2-Hydride shift:</b> Adjacent H migrates to carbocation → gives more stable carbocation',
+          '<b>1,2-Methyl (or alkyl) shift:</b> Adjacent alkyl group migrates → rearrangement',
+          '<b>When do rearrangements occur?</b> When 1° or 2° carbocation can become 2° or 3° by migration',
+        ],
+        formula:'1,2-shift: [C⁺—C—H] → [C—C⁺] (H migrates with bonding pair)\nPinacol rearrangement: diol → ketone via carbocation rearrangement',
+        tip:'Rearrangements ALWAYS go toward a MORE stable carbocation. If you see a 1° or 2° carbocation next to a more substituted carbon → expect migration!'
+      }},
+      { name:'Carbanions & Free Radicals', tag:'', notes:{
+        def:'Carbanion: carbon with lone pair and negative charge (sp³). Radical: carbon with one unpaired electron (sp²-like). Both are key organic intermediates.',
+        points:[
+          '<b>Carbanion stability:</b> Opposite to carbocation! Methyl > 1° > 2° > 3° (electron-withdrawing groups stabilize)',
+          '<b>Resonance-stabilized carbanions:</b> Allylic, benzylic, α to carbonyl (enolate) — very common in synthesis',
+          '<b>Free radical stability:</b> 3° > 2° > 1° > methyl (like carbocations — hyperconjugation helps)',
+          '<b>Radical reactions:</b> Chain reactions — initiation (homolysis), propagation, termination',
+          'Halogens: F₂ > Cl₂ (reactive, less selective) > Br₂ (selective) > I₂ (too slow, endothermic)',
+        ],
+        tip:'Carbanions: stability increases with electron-withdrawing groups (EWG stabilize negative charge). Free radicals: stability same as carbocations (more substituted = more stable).'
+      }},
+    ]},
+  ]
+},
+{
+  id:3, color:'cc-green', icon:'⬡', title:'AROMATIC CHEMISTRY',
+  desc:'Benzene, aromaticity rules, EAS, NAS, directing effects',
+  subs:[
+    { name:'Aromaticity & Hückel\'s Rule', topics:[
+      { name:'Hückel\'s Rule (4n+2 π electrons)', tag:'core', notes:{
+        def:'A cyclic, planar, fully conjugated system with (4n+2) π electrons (where n = 0, 1, 2, ...) is aromatic and has exceptional stability.',
+        points:[
+          '<b>Hückel\'s Rule:</b> Aromatic if cyclic + planar + fully conjugated + (4n+2) π electrons',
+          '<b>Aromatic (n=0, 2e):</b> Cyclopropenyl cation (C₃H₃⁺)',
+          '<b>Aromatic (n=1, 6e):</b> Benzene, pyridine, pyrrole, furan, thiophene, cyclopentadienyl anion, cycloheptatrienyl cation',
+          '<b>Aromatic (n=2, 10e):</b> Naphthalene, azulene',
+          '<b>Antiaromatic (4n):</b> Cyclobutadiene (4e, n=1), cyclooctatetraene dianion, cyclopropenyl anion',
+          '<b>Nonaromatic:</b> Not fully conjugated or not planar (cyclooctatetraene is tub-shaped)',
+        ],
+        formula:'(4n+2) π electrons = Aromatic: 2, 6, 10, 14...\n(4n) π electrons = Antiaromatic: 4, 8, 12...',
+        tip:'BENZENE has 6 π electrons (n=1, 4×1+2=6). Count π electrons carefully: each double bond = 2, each lone pair in ring = 2 (if completing conjugation).'
+      }},
+      { name:'Aromatic vs Antiaromatic vs Nonaromatic', tag:'imp', notes:{
+        def:'Aromatic = extra stable; Antiaromatic = extra unstable; Nonaromatic = normal stability (no special effect).',
+        table:{
+          headers:['Property','Aromatic','Antiaromatic','Nonaromatic'],
+          rows:[
+            ['π electrons','4n+2','4n','—'],
+            ['Stability','Extra stable','Extra UNstable','Normal'],
+            ['Planarity','Planar','Planar','Not required'],
+            ['Conjugation','Fully conjugated','Fully conjugated','Broken'],
+            ['Example','Benzene','Cyclobutadiene','Cyclohexene'],
+          ]
+        },
+        tip:'Molecules "want" to be aromatic. They will gain/lose electrons or undergo reactions to avoid antiaromaticity (e.g., COT buckles out of plane to avoid antiaromaticity).'
+      }},
+    ]},
+    { name:'Electrophilic Aromatic Substitution', topics:[
+      { name:'EAS General Mechanism', tag:'core', notes:{
+        def:'EAS = electrophile attacks aromatic ring → arenium ion (σ complex/Wheland intermediate) → proton loss restores aromaticity.',
+        points:[
+          '<b>Step 1:</b> Electrophile (E⁺) attacks ring → σ complex (arenium ion) — ring loses aromaticity; SLOW',
+          '<b>Step 2:</b> Proton loss from sp³ carbon → restores aromaticity; FAST',
+          '<b>Rate-determining step:</b> Formation of σ complex (addition step)',
+          '<b>Key contrast with alkene addition:</b> Benzene undergoes substitution (not addition) to preserve aromaticity',
+          'Nitration: E⁺ = NO₂⁺ (from HNO₃/H₂SO₄); Halogenation: E⁺ = Br⁺ or Cl⁺ (from X₂/FeX₃)',
+          'Friedel-Crafts: E⁺ = R⁺ or RC≡O⁺ (from RX/AlCl₃ or RCOCl/AlCl₃)',
+        ],
+        formula:'Electrophile generation:\nNO₂⁺: HNO₃ + H₂SO₄ → NO₂⁺ + HSO₄⁻ + H₂O\nBr⁺: Br₂ + FeBr₃ → Br⁺FeBr₄⁻',
+        tip:'EAS: ring acts as nucleophile, electrophile attacks. Aromaticity must be restored → proton loss (substitution, not addition).'
+      }},
+      { name:'Directing Effects — ortho/para vs meta', tag:'imp', notes:{
+        def:'Substituents on benzene direct incoming electrophiles to specific positions based on electronic effects (resonance and induction).',
+        points:[
+          '<b>ortho/para directors:</b> Electron-donating groups (EDG): –OH, –OR, –NH₂, –NR₂, –NHCOR, halogens (–X: deactivating but o/p director via resonance)',
+          '<b>meta directors:</b> Electron-withdrawing groups (EWG) that deactivate: –NO₂, –CN, –CHO, –COR, –COOH, –COOR, –SO₃H, –NR₃⁺',
+          '<b>Why o/p?</b> EDGs donate electrons into ring at ortho and para positions → stabilize arenium ion at these positions',
+          '<b>Why meta?</b> EWGs withdraw electrons; attack at meta avoids destabilization → meta product formed by default',
+          '<b>Halogens:</b> Deactivate ring (inductive withdrawal) but direct o/p (resonance donation from lone pairs)',
+          '<b>Steric effect:</b> ortho products sometimes less due to steric hindrance; para preferred over ortho in many cases',
+        ],
+        table:{
+          headers:['Group Type','Direction','Ring Activity','Examples'],
+          rows:[
+            ['–NH₂, –OH, –OR','ortho/para','Strongly activating','Aniline, phenol'],
+            ['–NHCOR, –CH₃','ortho/para','Activating','Acetanilide, toluene'],
+            ['–F, –Cl, –Br, –I','ortho/para','Deactivating','Chlorobenzene'],
+            ['–NO₂, –CN, –CHO','meta','Strongly deactivating','Nitrobenzene'],
+            ['–COOH, –COR','meta','Deactivating','Benzoic acid'],
+          ]
+        },
+        tip:'DONATING = activates ring + o/p director. WITHDRAWING = deactivates + meta director. EXCEPTION: Halogens deactivate but still o/p direct!'
+      }},
+      { name:'Friedel-Crafts Alkylation & Acylation', tag:'core', notes:{
+        def:'Friedel-Crafts reactions introduce alkyl (alkylation) or acyl (acylation) groups onto benzene using Lewis acid catalyst (AlCl₃).',
+        points:[
+          '<b>Alkylation:</b> ArH + RCl + AlCl₃ → Ar–R + HCl + AlCl₃ (catalyst regenerated)',
+          '<b>Problems with alkylation:</b> (1) Polyalkylation (alkyl group activates ring), (2) Carbocation rearrangements',
+          '<b>Acylation:</b> ArH + RCOCl + AlCl₃ → Ar–COR + HCl + AlCl₃',
+          '<b>Advantages of acylation:</b> No rearrangements; no polyacylation (acyl group deactivates ring); can reduce to get alkyl (via Clemmensen/Wolff-Kishner)',
+          '<b>Limitations:</b> Doesn\'t work with deactivated rings (–NO₂, –NR₃⁺ substituents); doesn\'t work with aryl/vinyl halides',
+        ],
+        tip:'Prefer acylation over alkylation in synthesis: no rearrangements, no polysubstitution. Then reduce C=O to CH₂ if needed.'
+      }},
+    ]},
+  ]
+},
+{
+  id:4, color:'cc-red', icon:'⬟', title:'CARBONYL CHEMISTRY',
+  desc:'Aldehydes, ketones, carboxylic acids, enolates, and condensations',
+  subs:[
+    { name:'Aldehydes & Ketones', topics:[
+      { name:'Aldol Condensation', tag:'imp', notes:{
+        def:'Aldol condensation: base-catalyzed self-condensation of aldehydes or ketones that have α-H, giving β-hydroxy carbonyl compounds (aldol products).',
+        points:[
+          '<b>Base-catalyzed mechanism:</b> (1) Base abstracts α-H → enolate; (2) Enolate attacks C=O of another molecule → alkoxide; (3) Protonation → β-hydroxy carbonyl (aldol)',
+          '<b>Acid-catalyzed mechanism:</b> Tautomerization → enol; enol attacks protonated carbonyl',
+          '<b>Aldol product:</b> β-hydroxy aldehyde or β-hydroxy ketone',
+          '<b>Aldol condensation:</b> Aldol product can dehydrate (heated/acid) → α,β-unsaturated carbonyl (conjugated)',
+          '<b>Mixed (crossed) aldol:</b> Use non-enolizable carbonyl (HCHO, benzaldehyde) as electrophile to avoid self-condensation',
+          '<b>Intramolecular aldol:</b> Gives cyclic products; favors 5- or 6-membered rings',
+        ],
+        formula:'RCHO → enolate → attacks RCHO → RCH(OH)CH(R)CHO (β-hydroxy aldehyde)\nWith heat: -H₂O → RC=C(R)CHO (α,β-unsaturated aldehyde)',
+        tip:'Aldol = ALDehyde + alcOHol (the product!). Two molecules of carbonyl compound join: one acts as nucleophile (enolate), one as electrophile (C=O).'
+      }},
+      { name:'Wittig Reaction', tag:'imp', notes:{
+        def:'Wittig reaction converts a C=O to a C=C using a phosphorus ylide (R₂C=PPh₃). Gives alkene with predictable geometry.',
+        points:[
+          '<b>Phosphorus ylide (Wittig reagent):</b> R₂C=PPh₃ formed from alkyl halide + PPh₃ → phosphonium salt → base treatment',
+          '<b>Mechanism:</b> [2+2] cycloaddition → oxaphosphetane intermediate → retro-[2+2] → alkene + Ph₃P=O',
+          '<b>Non-stabilized ylide:</b> (unstabilized, R=alkyl) → cis (Z) alkene predominantly',
+          '<b>Stabilized ylide:</b> (R=EWG like –COOR, –CN) → trans (E) alkene predominantly',
+          'Driving force: P=O bond (~540 kJ/mol) is very strong → thermodynamic driving force',
+        ],
+        formula:'R₂C=O + Ph₃P=CR\'₂ → R₂C=CR\'₂ + Ph₃P=O\nFormation of ylide: R-X + PPh₃ → [R-P⁺Ph₃]X⁻ → base → R-CH=PPh₃',
+        tip:'Wittig = CO → CC (converts carbonyl to alkene). The phosphorus oxide byproduct drives the reaction. Stabilized ylide = trans alkene.'
+      }},
+    ]},
+    { name:'Enols & Enolates', topics:[
+      { name:'Keto-Enol Tautomerism', tag:'imp', notes:{
+        def:'Tautomers are rapidly interconverting structural isomers that differ in position of a hydrogen and a double bond. Keto form usually predominates.',
+        points:[
+          '<b>Keto form:</b> Normal C=O structure; usually more stable for simple aldehydes/ketones',
+          '<b>Enol form:</b> C=C with OH; less stable except in special cases',
+          '<b>Enol stabilized when:</b> Conjugation (phenol is ~100% enol), intramolecular H-bonding (β-diketones), aromatic stabilization',
+          '<b>Acetylacetone (CH₃COCH₂COCH₃):</b> ~80% enol in non-polar solvents due to chelated H-bonding and conjugation',
+          'Enolization is catalyzed by acid (protonation of O, then deprotonation of α-C) or base (deprotonation of α-C)',
+          '<b>Enolate:</b> Deprotonated enol → resonance-stabilized anion (O⁻ ↔ C⁻)',
+        ],
+        tip:'Phenol = 100% enol because keto form would break aromaticity (too costly). For simple ketones: keto form dominates (>99%).'
+      }},
+      { name:'Claisen Condensation', tag:'imp', notes:{
+        def:'Claisen condensation: base-catalyzed condensation of two esters (or ester + carbonyl) at α-carbon, giving β-ketoester.',
+        points:[
+          '<b>Mechanism:</b> (1) Base abstracts α-H of ester → enolate; (2) Enolate attacks carbonyl C of another ester → tetrahedral intermediate; (3) Loss of –OR → β-ketoester; (4) Deprotonation → stable enolate (product is acidic)',
+          '<b>Crossed Claisen:</b> One ester has no α-H (formate, oxalate, carbonate esters used as acceptors)',
+          '<b>Dieckmann cyclization:</b> Intramolecular Claisen on diester → cyclic β-ketoester',
+          '<b>Driving force:</b> Formation of stable enolate of β-ketoester product (pKa ~11)',
+          'Product: β-ketoester (e.g., ethyl acetoacetate from 2× ethyl acetate)',
+        ],
+        formula:'2 CH₃COOC₂H₅ + NaOEt → CH₃COCH₂COOC₂H₅ + C₂H₅OH\n(ethyl acetate → ethyl acetoacetate)',
+        tip:'Claisen = two esters join at α-carbon. Aldol = two carbonyls join (one as enolate, one as electrophile). Both = enolate chemistry!'
+      }},
+      { name:'Michael Addition', tag:'', notes:{
+        def:'Michael addition: nucleophilic 1,4-addition (conjugate addition) of a stabilized carbanion (Michael donor) to an α,β-unsaturated carbonyl (Michael acceptor).',
+        points:[
+          '<b>Michael donor:</b> Active methylene compound — malonate, acetoacetate, nitroalkane, β-diketone',
+          '<b>Michael acceptor:</b> α,β-unsaturated carbonyl — enone, acrylate, acrylonitrile',
+          '<b>1,4-addition vs 1,2-addition:</b> Soft nucleophiles prefer 1,4 (Michael); hard nucleophiles prefer 1,2 (carbonyl)',
+          'Hard nucleophiles (RMgX, RLi): 1,2-addition to C=O; Soft nucleophiles (enolates, cuprates): 1,4-addition',
+          '<b>Robinson annulation:</b> Michael addition + intramolecular aldol → 6-membered ring',
+        ],
+        tip:'HSAB principle: Hard Nu → attacks hard C=O carbon (1,2). Soft Nu → attacks soft β-carbon (1,4 = Michael). Cuprates (R₂CuLi) are the classic soft nucleophiles.'
+      }},
+    ]},
+  ]
+},
+{
+  id:5, color:'cc-blue', icon:'◈', title:'PERICYCLIC REACTIONS',
+  desc:'Concerted reactions, orbital symmetry, Woodward-Hoffmann rules',
+  subs:[
+    { name:'Cycloaddition Reactions', topics:[
+      { name:'Diels-Alder Reaction [4+2]', tag:'imp', notes:{
+        def:'Diels-Alder: [4+2] cycloaddition between a conjugated diene (4π) and a dienophile (2π) to form a cyclohexene. Concerted, pericyclic, stereospecific.',
+        points:[
+          '<b>Requirements:</b> Diene in s-cis conformation + electron-poor dienophile (EWG on dienophile activates it)',
+          '<b>Diene must be s-cis:</b> The diene\'s double bonds must be able to adopt s-cis conformation (locked s-cis = most reactive)',
+          '<b>Normal electron demand:</b> Electron-rich diene + electron-poor dienophile (e.g., EWG = –COOR, –CHO, –CN)',
+          '<b>Stereochemistry:</b> Syn addition — substituents on dienophile retain relative stereochemistry (endo/exo products)',
+          '<b>endo rule:</b> Kinetically favored endo product (secondary orbital interactions in TS); exo is thermodynamic product',
+          '<b>Regioselectivity:</b> "ortho" and "para" products follow FMO analysis',
+        ],
+        formula:'Diene (4π, s-cis) + Dienophile (2π) → Cyclohexene\nFMO: HOMO(diene) + LUMO(dienophile) must overlap\nActivation by EWG on dienophile lowers LUMO energy → better overlap',
+        tip:'Diels-Alder: 4+2=6 carbons in ring. Need: s-cis diene + activated dienophile. Syn addition. endo = kinetic. Remember: "diene + dienophile = cyclohexene"'
+      }},
+      { name:'Woodward-Hoffmann Rules', tag:'hard', notes:{
+        def:'W-H rules predict orbital symmetry-allowed or forbidden pericyclic reactions based on thermal (ground state) or photochemical (excited state) conditions.',
+        points:[
+          '<b>Thermal [4n+2] cycloadditions:</b> Allowed (suprafacial-suprafacial) e.g., Diels-Alder',
+          '<b>Thermal [4n] cycloadditions:</b> Forbidden (s-s), only allowed antarafacially',
+          '<b>Photochemical [4n] cycloadditions:</b> Allowed (e.g., [2+2] photochemically)',
+          '<b>Electrocyclic rules:</b> 4n electrons: thermal=conrotatory, photo=disrotatory; 4n+2 electrons: thermal=disrotatory, photo=conrotatory',
+          '<b>Sigmatropic:</b> [1,j] suprafacial: thermal allowed if (j+1)=4n+2; antara if 4n',
+          'All pericyclic reactions are concerted (no intermediates); stereospecific',
+        ],
+        table:{
+          headers:['Reaction','Electrons','Thermal','Photochemical'],
+          rows:[
+            ['[2+2] cycloaddition','4 (4n)','Forbidden','Allowed'],
+            ['[4+2] Diels-Alder','6 (4n+2)','Allowed','Forbidden'],
+            ['4π electrocyclic','4 (4n)','Conrotatory','Disrotatory'],
+            ['6π electrocyclic','6 (4n+2)','Disrotatory','Conrotatory'],
+          ]
+        },
+        tip:'Thermal allowed: [4n+2] suprafacial. Thermal forbidden: [4n] suprafacial (need photochemical). Electrocyclic: 4n thermal = CONrotatory (CONservative), 4n+2 thermal = DISrotatory.'
+      }},
+    ]},
+  ]
+},
+{
+  id:6, color:'cc-teal', icon:'⚗', title:'ORGANIC SYNTHESIS',
+  desc:'Retrosynthesis, protecting groups, and named reactions',
+  subs:[
+    { name:'Retrosynthetic Analysis', topics:[
+      { name:'Retrosynthesis Concepts & Notation', tag:'core', notes:{
+        def:'Retrosynthesis (disconnection approach) works backwards from target molecule to simpler starting materials by identifying key bond disconnections.',
+        points:[
+          '<b>Retrosynthetic arrow (⟹):</b> Points from target to precursors (reverse of reaction arrow)',
+          '<b>Synthon:</b> Idealized fragment from disconnection (may be ionic — carbocation/carbanion)',
+          '<b>Synthetic equivalent:</b> Real reagent that provides the synthon (e.g., RMgX provides R⁻ synthon)',
+          '<b>FGI (Functional Group Interconversion):</b> Transform target FG to simpler FG before disconnecting',
+          '<b>Key bond to disconnect:</b> C–C bonds (especially near FGs), C–heteroatom bonds',
+          '<b>Retrons:</b> Structural features that suggest specific reactions (aldol retron = β-hydroxy carbonyl → C–C between α and β carbons)',
+        ],
+        formula:'Target ⟹ [Synthon A] + [Synthon B]\nSynthon → Synthetic equivalent (real reagent)\nExample: RCH(OH)R\' ⟹ RCOR\' + R\'\'MgX (R\'\'=R or R\')',
+        tip:'Work BACKWARDS. Ask: "What bond was formed last?" "What reaction could have made this bond?" Identify synthons, then find their synthetic equivalents.'
+      }},
+    ]},
+    { name:'Named Reactions in Synthesis', topics:[
+      { name:'Grignard Reaction', tag:'imp', notes:{
+        def:'Grignard reagent (RMgX) is a powerful C-nucleophile that adds to electrophiles (carbonyls, CO₂, epoxides) to form new C–C bonds.',
+        points:[
+          '<b>Preparation:</b> R–X + Mg (dry ether or THF) → R–MgX (anhydrous conditions essential)',
+          '<b>Reactivity:</b> RMgX behaves as R⁻ (carbanion equivalent) + MgX⁺',
+          '<b>With HCHO:</b> → primary alcohol (1°); with R\'CHO → secondary (2°); with R\'COR\'\'→ tertiary (3°)',
+          '<b>With CO₂:</b> → carboxylic acid (after workup)',
+          '<b>With epoxides:</b> Opens at less hindered carbon (SN2)',
+          '<b>Limitations:</b> Cannot have acidic H in same molecule (–OH, –NH₂, –COOH, –SH): these destroy the Grignard',
+          '<b>Organomagnesium halides are air/moisture sensitive</b>',
+        ],
+        formula:'R-X + Mg → RMgX (in Et₂O or THF, anhydrous)\nRMgX + RCHO → R-CH(OMgX)-R → H₃O⁺ → R-CH(OH)-R (2° alcohol)\nRMgX + CO₂ → RCOOMgX → H₃O⁺ → RCOOH',
+        tip:'Grignard = nucleophilic carbon. HCHO → 1° alcohol. RCHO → 2° alcohol. Ketone → 3° alcohol. CO₂ → acid. Keep it DRY — water kills Grignard!'
+      }},
+      { name:'Baeyer-Villiger Oxidation', tag:'imp', notes:{
+        def:'Baeyer-Villiger oxidation converts ketones to esters (and cyclic ketones to lactones) using peracids (mCPBA, peracetic acid, Caro\'s acid).',
+        points:[
+          '<b>Reagents:</b> mCPBA (meta-chloroperoxybenzoic acid), CF₃COOOH, H₂O₂/BF₃, Caro\'s acid',
+          '<b>Mechanism:</b> (1) Peracid O attacks C=O → tetrahedral intermediate (Criegee intermediate); (2) Migration of C–C bond (1,2-shift) → ester + carboxylic acid',
+          '<b>Migration aptitude:</b> 3° alkyl > 2° alkyl ≈ phenyl > 1° alkyl > methyl > H',
+          'More substituted carbon migrates preferentially',
+          '<b>Stereochemistry:</b> Migration occurs with retention of configuration at migrating carbon',
+          '<b>Cyclic ketones → lactones:</b> Cyclohexanone + mCPBA → ε-caprolactone',
+        ],
+        formula:'R-CO-R\' + RCO₃H → R-O-CO-R\' (ester)\nMigration: more substituted R migrates to O\nCyclohexanone → ε-caprolactone (6-membered ring lactone)',
+        tip:'BV = ketone → ester. The MORE substituted group migrates. cyclic ketones give lactones (ring expands by one O). Remember: Criegee intermediate → 1,2-shift.'
+      }},
+      { name:'Wolff-Kishner & Clemmensen Reduction', tag:'', notes:{
+        def:'Both methods reduce C=O of aldehydes/ketones to CH₂. Used complementarily based on reaction conditions (acidic vs basic).',
+        table:{
+          headers:['Feature','Wolff-Kishner','Clemmensen'],
+          rows:[
+            ['Condition','Strongly basic (KOH/EG, heat)','Strongly acidic (Zn(Hg), HCl)'],
+            ['Mechanism','Via hydrazone → N₂ lost','Via Zn carbenoid on metal surface'],
+            ['Functional group tolerance','Acid-sensitive groups OK','Base-sensitive groups OK'],
+            ['Substrate','Aldehydes, ketones (no acid-sensitive)','Aldehydes, ketones (no base-sensitive)'],
+            ['Temperature','High (~200°C or microwave)','Reflux in HCl'],
+          ]
+        },
+        tip:'Wolff-Kishner = Basic conditions (Hydrazine + KOH). Clemmensen = Acidic conditions (Zinc amalgam + HCl). Both remove C=O and give CH₂. Use whichever conditions your substrate tolerates!'
+      }},
+    ]},
+  ]
+},
+{
+  id:7, color:'cc-orange', icon:'📡', title:'SPECTROSCOPY & STRUCTURE DETERMINATION',
+  desc:'NMR, IR, Mass Spectrometry, and UV-Vis interpretation',
+  subs:[
+    { name:'NMR Spectroscopy', topics:[
+      { name:'¹H NMR — Chemical Shifts & Integration', tag:'core', notes:{
+        def:'¹H NMR exploits nuclear spin to identify hydrogen environments. Chemical shift (δ, ppm) indicates electronic environment; integration gives ratio of H atoms.',
+        points:[
+          '<b>TMS (tetramethylsilane):</b> Reference = 0 ppm; highly shielded → δ = 0',
+          '<b>Downfield (high δ):</b> Deshielded protons (near EWG, aromatic, vinyl, aldehyde)',
+          '<b>Typical shifts:</b> CH₃ ~0.9, CH₂ ~1.2, CH~1.5 (alkyl); vinyl ~4.5-6.5; aromatic ~6.5-8; aldehyde ~9-10; COOH ~10-12',
+          '<b>Integration:</b> Area under peak proportional to number of equivalent H atoms',
+          '<b>Equivalent protons:</b> Same chemical environment → same signal; homotopic H same signal; enantiotopic H same in achiral media',
+          'Electronegative substituents cause downfield shift of nearby H atoms',
+        ],
+        formula:'Anisotropy effects:\nAromatic H: deshielded (in cone of ring current) ~7-8 ppm\nAlkyne H: shielded (along axis) ~2-3 ppm\nAldehyde CHO: very deshielded ~9-10 ppm',
+        tip:'Downfield = deshielded = larger δ. Electronegativity deshields. Ring current in benzene strongly deshields aromatic H. TMS = 0 ppm reference.'
+      }},
+      { name:'Splitting Patterns & Coupling Constants', tag:'imp', notes:{
+        def:'Spin-spin coupling (J-coupling) between adjacent non-equivalent H atoms splits NMR signals into multiplets. N equivalent neighbors → N+1 lines.',
+        points:[
+          '<b>n+1 rule:</b> A proton with n equivalent neighboring H appears as n+1 lines (multiplet)',
+          '<b>Singlet (s):</b> No neighboring H | <b>Doublet (d):</b> 1 neighbor | <b>Triplet (t):</b> 2 neighbors | <b>Quartet (q):</b> 3 neighbors',
+          '<b>Coupling constant J (Hz):</b> Distance between lines in a multiplet; same J for coupled protons',
+          '<b>Vicinal coupling (³J):</b> H–C–C–H coupling; 0-16 Hz depending on dihedral angle (Karplus equation)',
+          '<b>Geminal coupling (²J):</b> H–C–H; usually 0-3 Hz for sp² carbon; ~12-16 Hz for sp³',
+          'Equivalent protons do NOT show coupling with each other',
+          '<b>Pascal\'s triangle:</b> Relative intensities of multiplets: 1:1 (d), 1:2:1 (t), 1:3:3:1 (q), etc.',
+        ],
+        formula:'Karplus equation: ³J = A cos²φ − B cosφ + C\nAnti (180°): large J (~12 Hz)\nGauche (60°): small J (~3 Hz)\nEthyl group: CH₂ (quartet) + CH₃ (triplet) — classic pattern',
+        tip:'Ethyl group gives "quartet + triplet" — the most common NMR pattern! CH₂ next to CH₃: CH₂ is split by 3H → quartet; CH₃ split by 2H → triplet.'
+      }},
+      { name:'IR Functional Group Frequencies', tag:'core', notes:{
+        def:'IR spectroscopy detects bond vibrations. Absorption frequency identifies functional groups. Key region: 4000–1500 cm⁻¹ (functional groups), 1500–400 cm⁻¹ (fingerprint).',
+        points:[
+          '<b>O–H (alcohol):</b> Broad, strong, 3200–3550 cm⁻¹',
+          '<b>O–H (carboxylic acid):</b> Very broad, 2500–3300 cm⁻¹',
+          '<b>N–H:</b> 3300–3500 cm⁻¹ (NH₂ = two peaks, NH = one peak)',
+          '<b>C–H:</b> Just below 3000 cm⁻¹ (sp³); just above 3000 (sp², sp); aldehyde C–H ~2700-2850 (2 peaks)',
+          '<b>C≡N (nitrile), C≡C (alkyne):</b> ~2200 cm⁻¹',
+          '<b>C=O (carbonyl):</b> 1630–1850 cm⁻¹ (exact position identifies carbonyl type)',
+          'C=O frequency order: acid chloride (~1800) > anhydride (~1820+1760) > ester (~1735) > aldehyde (~1725) > ketone (~1715) > amide (~1680)',
+        ],
+        formula:'General rule: stronger bond → higher frequency\nDouble bond > single bond in stretching frequency\nHeavier atoms → lower frequency (mass effect)',
+        tip:'Big 4 to memorize: Broad O-H (3200-3550), Sharp C=O (1700-1750), N-H (3300-3500), C≡N (~2200). The C=O peak is the most diagnostic!'
+      }},
+    ]},
+    { name:'Mass Spectrometry', topics:[
+      { name:'Molecular Ion & Fragmentation Patterns', tag:'imp', notes:{
+        def:'MS measures mass-to-charge ratio (m/z) of ions. Molecular ion (M⁺•) gives MW. Fragmentation patterns help identify structure.',
+        points:[
+          '<b>Molecular ion (M⁺•):</b> Highest mass peak (excluding isotope peaks); gives molecular weight',
+          '<b>Base peak:</b> Most abundant fragment (tallest peak); set to 100%',
+          '<b>M+1 peak:</b> Due to ¹³C (~1.1% per carbon); ratio M+1/M × 100 ≈ number of carbons',
+          '<b>M+2 peak:</b> Indicates Cl (M:M+2 = 3:1) or Br (M:M+2 = 1:1); also S',
+          '<b>Alpha-cleavage:</b> Bond adjacent to heteroatom/carbonyl breaks; gives acylium or oxocarbenium ions',
+          '<b>McLafferty rearrangement:</b> 6-membered TS; γ-H transfers to C=O; requires γ-H and C=O',
+          'Loss of 15 = CH₃; loss of 29 = CHO or C₂H₅; loss of 31 = OCH₃; loss of 45 = OEt or COOH',
+        ],
+        tip:'Check M+2 for Br (50:50) and Cl (75:25). Nitrogen rule: odd MW = odd number of N. Common losses: 15 (CH₃), 18 (H₂O), 28 (CO), 44 (CO₂).'
+      }},
+    ]},
+  ]
+},
+{
+  id:8, color:'cc-pink', icon:'⬡', title:'HETEROCYCLIC CHEMISTRY',
+  desc:'Five & six-membered rings containing N, O, S — properties and reactions',
+  subs:[
+    { name:'Five-Membered Heterocycles', topics:[
+      { name:'Pyrrole — Properties & Reactions', tag:'imp', notes:{
+        def:'Pyrrole is a 5-membered aromatic heterocycle with N. The N lone pair is part of the aromatic π system, making pyrrole a very weak base but a good nucleophile in EAS.',
+        points:[
+          '<b>Aromaticity:</b> N lone pair contributes 2e to aromatic sextet (6π electrons total) → N lone pair delocalized into ring',
+          '<b>Weakly basic:</b> pKa of conjugate acid = −3.8 (protonation would destroy aromaticity)',
+          '<b>Strongly acidic N–H:</b> pKa ~17 (N–H is more acidic than alcohol); can be deprotonated by NaH/KOH',
+          '<b>EAS at 2-position (α):</b> Much more reactive than benzene; prefers C-2 (α) position over C-3 (β)',
+          'Reactions: halogenation, nitration, Mannich reaction, acylation (all at C-2)',
+          '<b>Under harsh conditions:</b> Can undergo ring opening / polymerization',
+        ],
+        formula:'Electron density: C-2 > C-3 in pyrrole\nEAS: Pyrrole >> Furan > Thiophene >> Benzene (reactivity order)\nPyrrole N: lone pair in π-system → cannot donate to H⁺ (would break aromaticity)',
+        tip:'Pyrrole N lone pair is IN the aromatic ring (= aromatic sextet). So pyrrole is NOT basic (lone pair not available for H⁺). EAS prefers α position (C-2).'
+      }},
+      { name:'Furan, Thiophene & Comparison', tag:'', notes:{
+        def:'Furan (O) and thiophene (S) are 5-membered aromatic heterocycles. O and S contribute lone pairs to complete the 6π aromatic system.',
+        table:{
+          headers:['Property','Pyrrole','Furan','Thiophene'],
+          rows:[
+            ['Heteroatom','N','O','S'],
+            ['Aromaticity','Good','Moderate','Best (of 3)'],
+            ['EAS reactivity','Highest','High','Moderate'],
+            ['EAS position','C-2 (α)','C-2 (α)','C-2 (α)'],
+            ['Basicity','Very weak (−3.8)','Very weak','Very weak'],
+            ['Diene behavior','Moderate','Yes (Diels-Alder)','Limited'],
+          ]
+        },
+        points:[
+          '<b>Furan as diene:</b> Reacts in Diels-Alder with reactive dienophiles (but equilibrium; product can revert)',
+          '<b>Thiophene:</b> Most stable of the three; benzene-like stability due to S 3d orbital contribution',
+          '<b>EAS of all three:</b> Prefer C-2 (α) position; electron density higher at α vs β',
+        ],
+        tip:'Reactivity order for EAS: Pyrrole > Furan > Thiophene. Stability order: Thiophene > Pyrrole > Furan.'
+      }},
+    ]},
+    { name:'Six-Membered Heterocycles', topics:[
+      { name:'Pyridine — Basicity & Reactivity', tag:'core', notes:{
+        def:'Pyridine is a 6-membered aromatic N-heterocycle. The N lone pair is NOT part of the π-system (points outward in sp² orbital), making pyridine a Lewis base.',
+        points:[
+          '<b>Aromaticity:</b> 6π electrons in ring (like benzene); N lone pair is in sp² orbital (pointing out) = NOT in π system',
+          '<b>Basic:</b> pKa of pyridinium (PyH⁺) = 5.2 (N lone pair available for protonation)',
+          '<b>EAS very slow:</b> N is EWG (like meta-director); ring is electron-poor; EAS gives 3-substituted product if forced',
+          '<b>NAS very fast:</b> N activates positions 2 and 4 toward nucleophilic attack; Chichibabin reaction (2-amino pyridine with NaNH₂)',
+          'Reduction: pyridine + H₂/Pt → piperidine (fully saturated ring)',
+          '<b>N-oxide:</b> Pyridine + H₂O₂ → pyridine N-oxide; enables electrophilic attack at 4-position',
+        ],
+        formula:'pKa (PyH⁺) = 5.2 (much more basic than pyrrole at -3.8)\nEAS: need harsh conditions; NAS: easy at C-2 and C-4\nMeisenheimer complex = NAS intermediate (like arenium for EAS)',
+        tip:'Pyridine N lone pair is NOT in π-system → available for protonation → BASIC. Compare to pyrrole where lone pair IS in π-system → NOT basic.'
+      }},
+      { name:'Purine & Pyrimidine Bases (DNA/RNA)', tag:'imp', notes:{
+        def:'Purines (A, G) and pyrimidines (C, T, U) are the nitrogen bases of nucleic acids. Understanding their structure explains base pairing and genetic code.',
+        points:[
+          '<b>Pyrimidines:</b> Cytosine (C), Thymine (T, DNA only), Uracil (U, RNA only)',
+          '<b>Purines:</b> Adenine (A), Guanine (G) — fused pyrimidine + imidazole ring',
+          '<b>Watson-Crick base pairs:</b> A–T (2 H-bonds in DNA), G–C (3 H-bonds), A–U (2 H-bonds in RNA)',
+          '<b>Tautomerism crucial:</b> Amino-imino and keto-enol tautomers; wrong tautomer → mispairing → mutation',
+          '<b>G–C pair has 3 H-bonds:</b> More stable; higher G+C content → higher DNA melting temperature (Tm)',
+          'Purine synthesis in vivo: complex multi-step pathway using amino acids, CO₂, formate',
+        ],
+        tip:'AT=2 H-bonds (2 letter word). GC=3 H-bonds (3 letter word). Purines are PURe As Gold (Purines = Adenine + Guanine). Pyrimidines = CUT (Cytosine, Uracil, Thymine).'
+      }},
+    ]},
+  ]
+},
+{
+  id:9, color:'cc-lime', icon:'△', title:'THERMODYNAMICS & KINETICS',
+  desc:'Energy, stability, reaction rates, electronic effects, and transition states',
+  subs:[
+    { name:'Thermodynamic Stability', topics:[
+      { name:'Thermodynamic vs Kinetic Control', tag:'imp', notes:{
+        def:'Kinetic product: forms fastest (lowest activation energy). Thermodynamic product: most stable (lowest energy). They may be different compounds.',
+        points:[
+          '<b>Kinetic control:</b> Low temperature, short reaction time, irreversible conditions → kinetic product (faster forming)',
+          '<b>Thermodynamic control:</b> High temperature, long reaction time, reversible conditions → thermodynamic product (more stable)',
+          '<b>Classic example:</b> Deprotonation of 2-methylcyclohexanone: LDA at –78°C → kinetic enolate (less substituted); NaOEt at RT → thermodynamic enolate (more substituted)',
+          '<b>Another example:</b> 1,2 vs 1,4-addition to conjugated dienes: 1,2-addition = kinetic; 1,4-addition = thermodynamic',
+          'Conditions that favor thermodynamic product allow equilibration (reversible product formation)',
+        ],
+        formula:'Reaction coordinate:\nKinetic product: lower Ea (activation energy)\nThermodynamic product: lower ΔG (free energy of product)\nAt low T: kinetic product trapped\nAt high T: equilibration → thermodynamic product',
+        tip:'"Kinetically controlled = cold & fast. Thermodynamically controlled = hot & slow (time to equilibrate)." Think: low T traps the faster-forming product.'
+      }},
+      { name:'Inductive & Resonance Effects', tag:'core', notes:{
+        def:'Inductive effect: electron withdrawal/donation through σ bonds by electronegativity differences. Resonance (mesomeric) effect: electron delocalization through π bonds.',
+        points:[
+          '<b>Inductive effect (I):</b> Falls off rapidly with distance; EWG: –F, –Cl, –NO₂, –CN, –CF₃; EDG: –CH₃, –C₂H₅ (hyperconjugation)',
+          '<b>Resonance effect (M):</b> Acts through conjugated π systems; EDG by resonance (+M): –OH, –OR, –NH₂, –NR₂; EWG by resonance (–M): –NO₂, –CHO, –COOR',
+          '<b>When competing:</b> Resonance usually > inductive (except across long distances)',
+          '<b>Hyperconjugation:</b> C–H σ bond electrons delocalize into adjacent empty p orbital or π* system; stabilizes carbocations and radicals',
+          '<b>Effect on acidity/basicity:</b> EDG on acid → weaker acid (destabilizes conjugate base); EWG → stronger acid',
+        ],
+        tip:'I-effect: through σ bonds, short range. M-effect: through π bonds/conjugation, longer range. M > I when both present. EWG increases acidity; EDG decreases acidity.'
+      }},
+    ]},
+    { name:'Reaction Kinetics', topics:[
+      { name:'Hammond Postulate', tag:'imp', notes:{
+        def:'Hammond Postulate: The transition state for an exothermic step resembles the reactants; for an endothermic step, the TS resembles the products.',
+        points:[
+          '<b>Exothermic reactions:</b> TS is "early" (reactant-like); structure/stability of reactants affects TS',
+          '<b>Endothermic reactions:</b> TS is "late" (product-like); structure/stability of products/intermediates affects TS',
+          '<b>Application to carbocations:</b> SN1 ionization is endothermic → TS resembles carbocation → more stable carbocation = lower Ea = faster reaction',
+          '<b>Halogenation of alkanes:</b> Cl• is exothermic (early TS) → less selective; Br• is endothermic (late TS, radical-like) → more selective',
+          'Explains why Br₂ halogenation is more regioselective than Cl₂',
+        ],
+        formula:'Exothermic: TS ~ Reactants (early TS)\nEndothermic: TS ~ Products (late TS)\nBromination selectivity: 3°:2°:1° = 1700:82:1\nChlorination selectivity: 3°:2°:1° = 5:3.8:1',
+        tip:'Hammond: "The TS looks like whatever is higher in energy." Endothermic = products are higher → TS looks like products. This is why Br is selective (Br• abstracts H endothermically → TS is H-like → prefers stable radical).'
+      }},
+      { name:'Curtin-Hammett Principle', tag:'hard', notes:{
+        def:'Curtin-Hammett: When two conformations (or intermediates) rapidly equilibrate, the product ratio is NOT determined by the conformer ratio, but by the relative energies of the transition states leading to each product.',
+        points:[
+          'Applies when: two species rapidly interconvert AND each leads to a different product',
+          '<b>Key insight:</b> The more stable conformer is NOT necessarily the one giving major product',
+          '<b>What matters:</b> ΔΔG‡ (difference in activation energies from each conformer to its respective TS)',
+          'Product ratio = e^(−ΔΔG‡/RT)',
+          '<b>Example:</b> Axial vs equatorial attack on cyclohexanone — fast ring flip occurs; product ratio determined by TS energies, not conformer ratio',
+        ],
+        tip:'Curtin-Hammett: Don\'t confuse conformer POPULATION with product RATIO. The "less stable" conformer can give "major" product if its TS is lower in energy.'
+      }},
+    ]},
+  ]
+},
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER
+// ─────────────────────────────────────────────────────────────────────────────
+function buildNotes(notes, color) {
+  if (!notes) return '';
+  const acr = getACR(color);
+  let html = `<div class="notes-content">`;
+
+  if (notes.def) {
+    html += `<div class="note-section">
+      <div class="note-heading">Definition</div>
+      <div class="note-text">${notes.def}</div>
+    </div>`;
+  }
+
+  if (notes.points && notes.points.length) {
+    html += `<div class="note-section">
+      <div class="note-heading">Key Points</div>
+      <div class="key-points">` +
+      notes.points.map(p => `<div class="kp">${p}</div>`).join('') +
+      `</div></div>`;
+  }
+
+  if (notes.formula) {
+    html += `<div class="note-section">
+      <div class="note-heading">Formula / Equation</div>
+      <div class="formula-box">${notes.formula.replace(/\n/g,'<br>')}</div>
+    </div>`;
+  }
+
+  if (notes.table) {
+    html += `<div class="note-section">
+      <div class="note-heading">Comparison Table</div>
+      <table class="cmp-table">
+        <thead><tr>${notes.table.headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead>
+        <tbody>${notes.table.rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody>
+      </table>
+    </div>`;
+  }
+
+  if (notes.tip) {
+    html += `<div class="mem-tip">
+      <span class="mem-label">💡 TIP</span>
+      <span class="mem-text">${notes.tip}</span>
+    </div>`;
+  }
+
+  html += `</div>`;
+  return html;
+}
+
+function getACR(color) {
+  const map = {'cc-cyan':'0,245,255','cc-purple':'191,0,255','cc-amber':'255,179,0','cc-green':'57,255,20','cc-red':'255,45,85','cc-blue':'0,119,255','cc-teal':'0,229,176','cc-orange':'255,107,53','cc-pink':'255,77,139','cc-lime':'170,255,0'};
+  return map[color] || '0,245,255';
+}
+
+function tagHTML(tag) {
+  if (!tag) return '';
+  const map = {core:'tag-core',imp:'tag-imp',hard:'tag-hard',new:'tag-new'};
+  const labels = {core:'CORE',imp:'IMP',hard:'HARD',new:'NEW'};
+  return `<span class="t-tag ${map[tag]}">${labels[tag]}</span>`;
+}
+
+function renderAll() {
+  const grid = document.getElementById('catGrid');
+  const navDiv = document.getElementById('navBtns');
+  let gridHTML = '';
+  let navHTML = '';
+
+  DATA.forEach((cat, ci) => {
+    navHTML += `<button class="nav-btn" onclick="scrollToCard(${ci})">${cat.icon} ${cat.title.split(' ')[0]}</button>`;
+
+    let subsHTML = '';
+    cat.subs.forEach((sub, si) => {
+      let topicsHTML = '';
+      sub.topics.forEach((topic, ti) => {
+        const notesHTML = buildNotes(topic.notes, cat.color);
+        topicsHTML += `
+          <div class="topic-row" id="t-${ci}-${si}-${ti}">
+            <div class="topic-hdr" onclick="toggleTopic(${ci},${si},${ti})">
+              <div class="t-bullet"></div>
+              <span class="t-name">${topic.name}</span>
+              ${tagHTML(topic.tag)}
+              ${notesHTML ? '<span class="t-arr">▼</span>' : ''}
+            </div>
+            ${notesHTML ? `<div class="notes-panel">${notesHTML}</div>` : ''}
+          </div>`;
+      });
+
+      subsHTML += `
+        <div class="sub-item" id="s-${ci}-${si}">
+          <div class="sub-hdr" onclick="toggleSub(${ci},${si})">
+            <div class="sub-dot"></div>
+            <span class="sub-name">${sub.name}</span>
+            <span class="sub-count">${sub.topics.length} TOPICS</span>
+            <span class="sub-arr">▼</span>
+          </div>
+          <div class="sub-body">
+            <div class="topic-list">${topicsHTML}</div>
+          </div>
+        </div>`;
+    });
+
+    gridHTML += `
+      <div class="cat-card ${cat.color}" id="cat-${ci}">
+        <div class="cat-hdr" onclick="toggleCard(${ci})">
+          <div class="cat-icon">${cat.icon}</div>
+          <div class="cat-info">
+            <div class="cat-title">${cat.title}</div>
+            <div class="cat-desc">${cat.desc}</div>
+          </div>
+          <div class="cat-toggle-btn">▼</div>
+        </div>
+        <div class="cat-body">
+          <div class="subcat-list">${subsHTML}</div>
+        </div>
+      </div>`;
+  });
+
+  grid.innerHTML = gridHTML;
+  navDiv.innerHTML = navHTML;
+}
+
+function toggleCard(ci) {
+  document.getElementById('cat-'+ci).classList.toggle('open');
+}
+function toggleSub(ci, si) {
+  document.getElementById('s-'+ci+'-'+si).classList.toggle('open');
+}
+function toggleTopic(ci, si, ti) {
+  const el = document.getElementById('t-'+ci+'-'+si+'-'+ti);
+  el.classList.toggle('open');
+}
+function scrollToCard(ci) {
+  const el = document.getElementById('cat-'+ci);
+  el.scrollIntoView({behavior:'smooth', block:'start'});
+  if (!el.classList.contains('open')) el.classList.add('open');
+}
+
+function doSearch(q) {
+  q = q.toLowerCase().trim();
+  const cards = document.querySelectorAll('.cat-card');
+  if (!q) {
+    cards.forEach(c => { c.style.display = ''; c.classList.remove('open'); c.querySelectorAll('.sub-item').forEach(s=>s.classList.remove('open')); c.querySelectorAll('.topic-row').forEach(t=>t.classList.remove('open')); });
+    return;
+  }
+  cards.forEach((card, ci) => {
+    const rows = card.querySelectorAll('.topic-row');
+    let anyMatch = false;
+    rows.forEach((row, rIdx) => {
+      const name = row.querySelector('.t-name');
+      if (name && name.textContent.toLowerCase().includes(q)) {
+        anyMatch = true;
+        row.classList.add('open');
+        row.closest('.sub-item').classList.add('open');
+      }
+    });
+    const subNames = card.querySelectorAll('.sub-name, .cat-title');
+    subNames.forEach(sn => { if (sn.textContent.toLowerCase().includes(q)) anyMatch = true; });
+    card.style.display = anyMatch ? '' : 'none';
+    if (anyMatch) card.classList.add('open');
+  });
+}
+
+renderAll();
+</script>
+</body>
+</html>
